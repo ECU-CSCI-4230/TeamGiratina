@@ -27,6 +27,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     let user = filteredUsers[0];
                     let body = {
                         id: user.id,
+                        email: user.email,
                         username: user.username,
                         firstName: user.firstName,
                         lastName: user.lastName,
@@ -73,10 +74,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 // get new user object from post body
                 let newUser = request.body;
 
-                // validation
+                // username validation
                 let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length;
                 if (duplicateUser) {
                     return throwError({ error: { message: 'Username "' + newUser.username + '" is already taken' } });
+                }
+
+                // email vailidation
+                duplicateUser = users.filter(user => { return user.email === newUser.email; }).length;
+                if (duplicateUser) {
+                    return throwError({ error: { message: 'Email "' + newUser.email + '" is already taken' } });
                 }
 
                 // save new user
