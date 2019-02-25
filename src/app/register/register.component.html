@@ -39,11 +39,11 @@
     </div>
     <div class="form-group">
         <label for="confirmPassword">Confirm Password</label>
-        <input type="confirmPassword" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+        <input type="confirmPassword" appConfirmEqualValidator="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
         <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
             <div *ngIf="f.confirmPassword.errors.required">Confirm password is required</div>
             <div *ngIf="f.confirmPassword.errors.minlength">Password must be at least 6 characters</div>
-            <!--<div *ngIf="f.confirmPassword.errors.">Passwords must match</div> -->
+            <div *ngIf="f.confirmPassword.errors.notEqual">Passwords must match</div>
         </div>
     </div>
     <div class="form-group">
