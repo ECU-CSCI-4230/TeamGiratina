@@ -21,7 +21,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadAllUsers();
+        
+        if(this.currentUser.username === "Giratina"){
+            // show all users
+            this.loadAllUsers();
+        } else {
+            // show current user
+            this.userService.getAll().pipe(first()).subscribe(users => {
+                this.users[0] = this.currentUser;
+            });
+        }
+        
     }
 
     ngOnDestroy() {
