@@ -1,39 +1,16 @@
-import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
-// services
-import { RecipeService } from './services/recipe.service';
-
-// components
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './pages/home/home.component';
-import { EditRecipeComponent } from './pages/edit-recipe/edit-recipe.component';
-import { NewRecipeComponent } from './pages/new-recipe/new-recipe.component';
-import { ShowRecipeComponent } from './pages/show-recipe/show-recipe.component';
-
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    EditRecipeComponent,
-    NewRecipeComponent,
-    ShowRecipeComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    ReactiveFormsModule
+    BrowserModule
   ],
-  providers: [
-    RecipeService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
