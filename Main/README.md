@@ -34,3 +34,5 @@ cd Documents/GitHub/TeamGiratina
 ## Run and open
 
 ng serve --open
+
+this is a test
