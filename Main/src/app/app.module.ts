@@ -8,9 +8,9 @@ import { routing }        from './app.routing';
 
 import { AlertComponent } from './_components';
 import { JwtInterceptor, ErrorInterceptor, ConfirmEqualValidatorDirective } from './_helpers';
-import { HomeComponent } from './home';
-import { LoginComponent } from './login';
-import { RegisterComponent } from './register';
+import { HomeComponent } from './pages/home';
+import { LoginComponent } from './pages/login';
+import { RegisterComponent } from './pages/register';
 
 @NgModule({
     imports: [
