@@ -11,6 +11,7 @@ import { JwtInterceptor, ErrorInterceptor, ConfirmEqualValidatorDirective } from
 import { HomeComponent } from './pages/home';
 import { LoginComponent } from './pages/login';
 import { RegisterComponent } from './pages/register';
+import { AccountComponent } from './pages/account';
 
 @NgModule({
     imports: [
@@ -24,6 +25,7 @@ import { RegisterComponent } from './pages/register';
         AlertComponent,
         HomeComponent,
         LoginComponent,
+        AccountComponent,
         RegisterComponent,
         ConfirmEqualValidatorDirective
     ],
