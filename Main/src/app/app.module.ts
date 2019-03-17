@@ -12,6 +12,9 @@ import { HomeComponent } from './pages/home';
 import { LoginComponent } from './pages/login';
 import { RegisterComponent } from './pages/register';
 import { AccountComponent } from './pages/account';
+import { PreferencesComponent } from './pages/preferences';
+import { ContactComponent } from './pages/contact';
+
 
 @NgModule({
     imports: [
@@ -27,6 +30,8 @@ import { AccountComponent } from './pages/account';
         LoginComponent,
         AccountComponent,
         RegisterComponent,
+        PreferencesComponent,
+        ContactComponent,
         ConfirmEqualValidatorDirective
     ],
     providers: [
