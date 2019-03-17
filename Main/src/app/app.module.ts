@@ -14,6 +14,7 @@ import { RegisterComponent } from './pages/register';
 import { AccountComponent } from './pages/account';
 import { PreferencesComponent } from './pages/preferences';
 import { ContactComponent } from './pages/contact';
+import { RecipeshowComponent } from './pages/recipe-show';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ContactComponent } from './pages/contact';
         AccountComponent,
         RegisterComponent,
         PreferencesComponent,
+        RecipeshowComponent,
         ContactComponent,
         ConfirmEqualValidatorDirective
     ],
