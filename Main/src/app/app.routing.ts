@@ -6,6 +6,7 @@ import { RegisterComponent } from './pages/register';
 import { AccountComponent } from './pages/account';
 import { AuthGuard } from './_guards';
 import { PreferencesComponent } from './pages/preferences';
+import { UserPreferencesComponent } from './pages/user-preferences' ;
 import { ContactComponent } from './pages/contact';
 import { RecipeshowComponent } from './pages/recipe-show';
 
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'account', component: AccountComponent },
     { path: 'preferences', component: PreferencesComponent},
+    { path: 'user-preferences', component: UserPreferencesComponent},
     { path: 'contact', component: ContactComponent},
     { path: 'recipe-show', component: RecipeshowComponent },
 

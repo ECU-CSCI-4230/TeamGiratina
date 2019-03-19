@@ -1,0 +1,1 @@
+export * from '@/pages/user-preferences/user-preferences.component';
