@@ -24,7 +24,11 @@ import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        routing
+        routing,
+   
+
+        // Registering EJ2 Button Module
+        ButtonModule
     ],
     declarations: [
         AppComponent,
@@ -37,14 +41,6 @@ import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
         RecipeshowComponent,
         ContactComponent,
         ConfirmEqualValidatorDirective
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpClient,
-
-        // Registering EJ2 Button Module
-        ButtonModule
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
