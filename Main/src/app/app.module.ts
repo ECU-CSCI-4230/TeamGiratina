@@ -16,6 +16,8 @@ import { PreferencesComponent } from './pages/preferences';
 import { ContactComponent } from './pages/contact';
 import { RecipeshowComponent } from './pages/recipe-show';
 
+// Imported syncfusion button module from buttons package
+import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
 
 @NgModule({
     imports: [
@@ -35,6 +37,14 @@ import { RecipeshowComponent } from './pages/recipe-show';
         RecipeshowComponent,
         ContactComponent,
         ConfirmEqualValidatorDirective
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClient,
+
+        // Registering EJ2 Button Module
+        ButtonModule
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
