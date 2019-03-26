@@ -48,9 +48,16 @@
 
 
 <h1 style="color:#B1B2B2 !important">Preferences</h1>
-<p style="color:#B1B2B2 !important">Current User: {{currentUser.firstName}}</p>
 
-<h3 style="color:#B1B2B2 !important">Your Preferences</h3>
+<form [formGroup] = "preferenceForm" (ngSubmit)="onSubmit()" class = 'body' >
+  <div style="color:#B1B2B2 !important" class="form-group">
+    <label for="phoneNumber">Phone Number</label>
+    <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+        <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+    </div>
+</div>
+</form>
 <ul>
     
 </ul>

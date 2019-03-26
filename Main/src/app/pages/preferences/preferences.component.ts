@@ -1,53 +1,57 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { User } from '@/_models';
-import { UserService, AuthenticationService } from '@/_services';
+import { AlertService, UserService, AuthenticationService } from '@/_services';
 
 @Component({ templateUrl: 'preferences.component.html' })
-export class PreferencesComponent implements OnInit, OnDestroy {
-    currentUser: User;
-    currentUserSubscription: Subscription;
-    users: User[] = [];
+export class PreferencesComponent implements OnInit{
+    preferenceForm: FormGroup;
+    loading = false;
+    submitted = false;
 
     constructor(
+        private formBuilder: FormBuilder,
         private authenticationService: AuthenticationService,
-        private userService: UserService
+        private router: Router,
+        private userService: UserService,
+        private alertService: AlertService
     ) {
-        this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
-            this.currentUser = user;
-        });
+        if (this.authenticationService.currentUserValue) {
+            this.router.navigate(['/preferences']);
+        }
     }
 
     ngOnInit() {
         
-        if(this.currentUser.username === "Giratina"){
-            // show all users
-            this.loadAllUsers();
-        } else {
-            // show current user
-            this.userService.getAll().pipe(first()).subscribe(users => {
-                this.users[0] = this.currentUser;
-            });
-        }
+        this.preferenceForm = this.formBuilder.group({
+            phoneNumber: ['', Validators.required],
+        });
         
     }
 
-    ngOnDestroy() {
-        // unsubscribe to ensure no memory leaks
-        this.currentUserSubscription.unsubscribe();
-    }
+    get f() { return this.preferenceForm.controls; }
 
-    deleteUser(id: number) {
-        this.userService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllUsers()
-        });
-    }
+    onSubmit() {
+        this.submitted = true;
 
-    private loadAllUsers() {
-        this.userService.getAll().pipe(first()).subscribe(users => {
-            this.users = users;
-        });
+        // stop here if form is invalid
+        if (this.preferenceForm.invalid) {
+            return;
+        }
+
+        this.loading = true;
+        this.userService.register(this.preferenceForm.value)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.alertService.success('Setting preferences successful', true);
+                    this.router.navigate(['/account']);
+                },
+                error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                });
     }
 }
