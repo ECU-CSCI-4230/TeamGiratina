@@ -1,31 +1,66 @@
-﻿<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
-    </div>
+﻿<style>
+.jumbotron{
+    height: 100%;
+    width: 100%;
+    
+}
+</style>
+
+
+<!-- nav -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">Lifestyle Hero</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/recipe-show">Recipes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/account">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Lifestyle Hero
+    </span>
+  </div>
 </nav>
-
+<body bg-color= "black">
 <!-- main app container -->
-<div class="jumbotron">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 offset-sm-3">
-                <alert></alert>
-                <router-outlet></router-outlet>
-            </div>
-        </div>
+<div style="background:#0B1E37 !important" class="jumbotron-fluid" >
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <alert></alert>
+        <br>
+        <br>
+        <router-outlet></router-outlet>
+      </div>
     </div>
+  </div>
 </div>
+<br>
+</body>
 
-<!-- credits -->
-<<!-- 
-    div class="text-center">
+
+<!-- credits
+<div class="text-center">
+
     <p>
         <a href="http://jasonwatmore.com/post/2018/10/29/angular-7-user-registration-and-login-example-tutorial" target="_top">Angular 7 - User Registration and Login Example & Tutorial</a>
     </p>
     <p>
         <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
     </p>
+
 </div> 
--->
+
+
