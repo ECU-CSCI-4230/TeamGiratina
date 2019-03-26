@@ -4,8 +4,11 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
     username: { type: String, unique: true, required: true },
     hash: { type: String, required: true },
+    email: { type: String, required: true},
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
+    notifyDaily: { type: Boolean, defualt: false},
+    notifyWeekly: { type: Boolean, defualt: false},
     createdDate: { type: Date, default: Date.now }
 });
 
