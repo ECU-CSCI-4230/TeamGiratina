@@ -27,7 +27,10 @@ export class PreferencesComponent implements OnInit{
         
         this.preferenceForm = this.formBuilder.group({
             phoneNumber: ['', Validators.required],
-            notifications: ['']
+            notifications: [''],
+            water: [''],
+            excercise: [''],
+            cook: [''],
         });
         
     }
