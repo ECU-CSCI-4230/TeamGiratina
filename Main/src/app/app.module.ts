@@ -15,7 +15,6 @@ import { AccountComponent } from './pages/account';
 import { PreferencesComponent } from './pages/preferences';
 import { ContactComponent } from './pages/contact';
 import { RecipeshowComponent } from './pages/recipe-show';
-import { UserPreferencesComponent } from './pages/user-preferences';
 
 
 @NgModule({
@@ -35,8 +34,7 @@ import { UserPreferencesComponent } from './pages/user-preferences';
         PreferencesComponent,
         RecipeshowComponent,
         ContactComponent,
-        ConfirmEqualValidatorDirective,
-        UserPreferencesComponent
+        ConfirmEqualValidatorDirective
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
