@@ -4,7 +4,6 @@ import { HomeComponent } from './pages/home';
 import { LoginComponent } from './pages/login';
 import { RegisterComponent } from './pages/register';
 import { AccountComponent } from './pages/account';
-
 import { AuthGuard } from './_guards';
 import { PreferencesComponent } from './pages/preferences';
 import { ContactComponent } from './pages/contact';

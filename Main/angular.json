@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Lifestyle-Hero": {
+    "Calender-Hero": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Lifestyle-Hero",
+            "outputPath": "dist/Calender-Hero",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -57,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Lifestyle-Hero:build"
+            "browserTarget": "Calender-Hero:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Lifestyle-Hero:build:production"
+              "browserTarget": "Calender-Hero:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Lifestyle-Hero:build"
+            "browserTarget": "Calender-Hero:build"
           }
         },
         "test": {
@@ -102,7 +102,7 @@
         }
       }
     },
-    "Lifestyle-Hero-e2e": {
+    "Calender-Hero-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -111,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Lifestyle-Hero:serve"
+            "devServerTarget": "Calender-Hero:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Lifestyle-Hero:serve:production"
+              "devServerTarget": "Calender-Hero:serve:production"
             }
           }
         },
@@ -131,5 +131,5 @@
       }
     }
   },
-  "defaultProject": "Lifestyle-Hero"
+  "defaultProject": "Calender-Hero"
 }

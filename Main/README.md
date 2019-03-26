@@ -1,4 +1,4 @@
-# Lifestyle Hero
+# CalenderHero
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.2.
 
@@ -34,5 +34,3 @@ cd Documents/GitHub/TeamGiratina
 ## Run and open
 
 ng serve --open
-
-this is a test
