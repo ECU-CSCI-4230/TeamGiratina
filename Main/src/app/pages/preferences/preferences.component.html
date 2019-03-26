@@ -1,5 +1,7 @@
 <style>
-    body {
+   
+   
+   body {
       font-family: "Lato", sans-serif;
     }
     
@@ -31,6 +33,11 @@
       font-size: 28px; /* Increased text to enable scrolling */
       padding: 0px 10px;
     }
+
+    .chkbox {
+      padding-left: 10px;
+      display: inline;
+    }
     
     @media screen and (max-height: 450px) {
       .sidenav {padding-top: 15px;}
@@ -48,15 +55,24 @@
 
 
 <h1 style="color:#B1B2B2 !important">Preferences</h1>
-
+<br>
 <form [formGroup] = "preferenceForm" (ngSubmit)="onSubmit()" class = 'body' >
+  <div style="color:#B1B2B2 !important" class="form-group">
+    <input type="checkbox" formControlName="notifications" id="notifications" class="chkbox" [ngClass]="{ 'is-invalid': submitted && f.notifications.errors }" />
+    <label for="notifications" class="chkbox">Would You Like To Recieve Notifications?</label>
+    <div *ngIf="submitted && f.notifications.errors" class="invalid-feedback">
+      
+    </div>
+  </div>
+  
   <div style="color:#B1B2B2 !important" class="form-group">
     <label for="phoneNumber">Phone Number</label>
     <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
     <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
-        <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+      <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
     </div>
-</div>
+  </div>
+    
 </form>
 <ul>
     
