@@ -1,5 +1,5 @@
 {
-  "name": "calender-hero",
+  "name": "lifestyle-hero",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",
