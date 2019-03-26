@@ -1,4 +1,4 @@
-﻿import { NgModule }      from '@angular/core';
+import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -16,12 +16,19 @@ import { PreferencesComponent } from './pages/preferences';
 import { ContactComponent } from './pages/contact';
 import { RecipeshowComponent } from './pages/recipe-show';
 
+// Imported syncfusion button module from buttons package
+import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
+
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
         routing,
+   
+
+        // Registering EJ2 Button Module
+        ButtonModule
     ],
     declarations: [
         AppComponent,
@@ -43,4 +50,4 @@ import { RecipeshowComponent } from './pages/recipe-show';
     bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class HomeModule { }
