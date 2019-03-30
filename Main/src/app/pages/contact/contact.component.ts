@@ -5,7 +5,10 @@ import { first } from 'rxjs/operators';
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
-@Component({ templateUrl: 'contact.component.html' })
+@Component({ 
+    templateUrl: 'contact.component.html',
+    styleUrls: ['contact.component.css']
+ })
 export class ContactComponent implements OnInit, OnDestroy {
     currentUser: User;
     currentUserSubscription: Subscription;

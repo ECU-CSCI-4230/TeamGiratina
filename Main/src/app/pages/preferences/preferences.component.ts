@@ -5,7 +5,10 @@ import { first } from 'rxjs/operators';
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
-@Component({ templateUrl: 'preferences.component.html' })
+@Component({ 
+    templateUrl: 'preferences.component.html',
+    styleUrls: ['preferences.component.css']
+ })
 export class PreferencesComponent implements OnInit, OnDestroy {
     currentUser: User;
     currentUserSubscription: Subscription;
