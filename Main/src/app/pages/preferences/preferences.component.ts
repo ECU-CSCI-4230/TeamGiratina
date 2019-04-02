@@ -28,9 +28,9 @@ export class PreferencesComponent implements OnInit{
         this.preferenceForm = this.formBuilder.group({
             phoneNumber: ['', Validators.required],
             notifications: [''],
-            water: [''],
-            excercise: [''],
-            cook: [''],
+            notifyWater: [''],
+            notifyExcercise: [''],
+            notifyCook: [''],
         });
         
     }
@@ -46,7 +46,7 @@ export class PreferencesComponent implements OnInit{
         }
 
         this.loading = true;
-        this.userService.register(this.preferenceForm.value)
+        this.userService.update(this.preferenceForm.value)
             .pipe(first())
             .subscribe(
                 data => {

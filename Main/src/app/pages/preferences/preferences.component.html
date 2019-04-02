@@ -70,25 +70,25 @@
   <br>
   <h4 style="color:#B1B2B2 !important">Which Notifications would you like to receive?</h4>
   <div style="color:#B1B2B2 !important" class="form-group">
-    <input type="checkbox" formControlName="excercise" id="excercise" [ngClass]="{ 'is-invalid': submitted && f.excercise.errors }" />
-    <label for="excercise" class="chkbox">To Exercise</label>
-    <div *ngIf="submitted && f.excercise.errors" class="invalid-feedback">
+    <input type="checkbox" formControlName="notifyExcercise" id="notifyExcercise" [ngClass]="{ 'is-invalid': submitted && f.notifyExcercise.errors }" />
+    <label for="notifyExcercise" class="chkbox">To Exercise</label>
+    <div *ngIf="submitted && f.notifyExcercise.errors" class="invalid-feedback">
       
     </div>
   </div>
 
   <div style="color:#B1B2B2 !important" class="form-group">
-    <input type="checkbox" formControlName="water" id="water" [ngClass]="{ 'is-invalid': submitted && f.water.errors }" />
-    <label for="water" class="chkbox">To Drink Water</label>
-    <div *ngIf="submitted && f.water.errors" class="invalid-feedback">
+    <input type="checkbox" formControlName="notifyWater" id="notifyWater" [ngClass]="{ 'is-invalid': submitted && f.notifyWater.errors }" />
+    <label for="notifyWater" class="chkbox">To Drink Water</label>
+    <div *ngIf="submitted && f.notifyWater.errors" class="invalid-feedback">
       
     </div>
   </div>
 
   <div style="color:#B1B2B2 !important" class="form-group">
-    <input type="checkbox" formControlName="cook" id="cook" [ngClass]="{ 'is-invalid': submitted && f.cook.errors }" />
-    <label for="cook" class="chkbox">To Cook</label>
-    <div *ngIf="submitted && f.cook.errors" class="invalid-feedback">
+    <input type="checkbox" formControlName="notifyCook" id="notifyCook" [ngClass]="{ 'is-invalid': submitted && f.notifyCook.errors }" />
+    <label for="notifyCook" class="chkbox">To Cook</label>
+    <div *ngIf="submitted && f.notifyCook.errors" class="invalid-feedback">
       
     </div>
   </div>
@@ -101,36 +101,15 @@
       <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
     </div>
   </div>
+
+  <div style="color:#B1B2B2 !important" class="form-group">
+    <button style="background-color:black !important" [disabled]="loading" class="btn btn-primary">Submit</button>
+    <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    <a routerLink="/account" class="btn btn-link">Cancel</a>
+  </div>
     
 </form>
 <ul>
     
 </ul>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
