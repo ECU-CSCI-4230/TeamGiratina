@@ -12,7 +12,6 @@ import { HomeComponent } from './pages/home';
 import { LoginComponent } from './pages/login';
 import { RegisterComponent } from './pages/register';
 import { AccountComponent } from './pages/account';
-import { PreferencesComponent } from './pages/preferences';
 import { ContactComponent } from './pages/contact';
 import { RecipeshowComponent } from './pages/recipe-show';
 
@@ -31,7 +30,6 @@ import { RecipeshowComponent } from './pages/recipe-show';
         LoginComponent,
         AccountComponent,
         RegisterComponent,
-        PreferencesComponent,
         RecipeshowComponent,
         ContactComponent,
         ConfirmEqualValidatorDirective

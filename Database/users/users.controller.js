@@ -5,7 +5,6 @@ const userService = require('./user.service');
 // routes
 router.post('/authenticate', authenticate);
 router.post('/register', register);
-router.post('/preferences', preferences);
 router.get('/', getAll);
 router.get('/current', getCurrent);
 router.get('/:id', getById);
@@ -22,12 +21,6 @@ function authenticate(req, res, next) {
 
 function register(req, res, next) {
     userService.create(req.body)
-        .then(() => res.json({}))
-        .catch(err => next(err));
-}
-
-function preferences(req, res, next) {
-    userService.update(req.body)
         .then(() => res.json({}))
         .catch(err => next(err));
 }
