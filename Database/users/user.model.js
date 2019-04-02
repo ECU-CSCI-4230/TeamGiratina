@@ -7,8 +7,11 @@ const schema = new Schema({
     email: { type: String, required: true},
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    notifyDaily: { type: Boolean, defualt: false},
-    notifyWeekly: { type: Boolean, defualt: false},
+    phoneNumber: { type: String, default: "0"},
+    notify: { type: Boolean, default: false},
+    notifyExercise: { type: Boolean, default: false},
+    notifyWater: { type: Boolean, default: false},
+    notifyCook: { type: Boolean, default: false},
     createdDate: { type: Date, default: Date.now }
 });
 
