@@ -1,6 +1,6 @@
 ﻿import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule }    from '@angular/forms';
+import { ReactiveFormsModule, FormsModule }    from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent }  from './app.component';
@@ -16,6 +16,7 @@ import { PreferencesComponent } from './pages/preferences';
 import { ContactComponent } from './pages/contact';
 import { RecipeshowComponent } from './pages/recipe-show';
 import { NewRecipeComponent } from './pages/recipeAdd';
+import { HelloComponent } from './pages/home/hello.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { NewRecipeComponent } from './pages/recipeAdd';
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
+        FormsModule,
         routing
     ],
     declarations: [
@@ -34,6 +36,7 @@ import { NewRecipeComponent } from './pages/recipeAdd';
         RegisterComponent,
         PreferencesComponent,
         RecipeshowComponent,
+        HelloComponent,
         NewRecipeComponent,
         ContactComponent,
         ConfirmEqualValidatorDirective
