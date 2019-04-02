@@ -31,7 +31,12 @@ export class RegisterComponent implements OnInit {
             email: ['', [Validators.required, Validators.email]],
             username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]],
-            confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
+            confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+            phoneNumber: ['', Validators.required],
+            notify: [''],
+            notifyWater: [''],
+            notifyExercise: [''],
+            notifyCook: ['']
         });
     }
 

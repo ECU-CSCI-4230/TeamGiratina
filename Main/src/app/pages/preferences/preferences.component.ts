@@ -30,7 +30,7 @@ export class PreferencesComponent implements OnInit{
             notifications: [''],
             notifyWater: [''],
             notifyExcercise: [''],
-            notifyCook: [''],
+            notifyCook: ['']
         });
         
     }
