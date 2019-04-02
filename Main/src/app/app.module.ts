@@ -15,6 +15,7 @@ import { AccountComponent } from './pages/account';
 import { PreferencesComponent } from './pages/preferences';
 import { ContactComponent } from './pages/contact';
 import { RecipeshowComponent } from './pages/recipe-show';
+import { NewRecipeComponent } from './pages/recipeAdd';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { RecipeshowComponent } from './pages/recipe-show';
         RegisterComponent,
         PreferencesComponent,
         RecipeshowComponent,
+        NewRecipeComponent,
         ContactComponent,
         ConfirmEqualValidatorDirective
     ],
