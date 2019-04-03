@@ -40,3 +40,8 @@ padding: 0px 10px;
     background: black;
     width: 100%;
 }
+
+.jumbotron {
+  background-color: black;
+  height: 100vh;
+}
