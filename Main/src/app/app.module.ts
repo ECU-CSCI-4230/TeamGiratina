@@ -12,7 +12,6 @@ import { HomeComponent } from './pages/home';
 import { LoginComponent } from './pages/login';
 import { RegisterComponent } from './pages/register';
 import { AccountComponent } from './pages/account';
-import { PreferencesComponent } from './pages/preferences';
 import { ContactComponent } from './pages/contact';
 import { RecipeshowComponent } from './pages/recipe-show';
 import { NewRecipeComponent } from './pages/recipeAdd';
@@ -34,7 +33,6 @@ import { HelloComponent } from './pages/home/hello.component';
         LoginComponent,
         AccountComponent,
         RegisterComponent,
-        PreferencesComponent,
         RecipeshowComponent,
         HelloComponent,
         NewRecipeComponent,

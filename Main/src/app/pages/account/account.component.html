@@ -6,15 +6,14 @@
 </div>
   
 
-<div class="container">
-    <h1 style="color:#B1B2B2 !important">Account</h1>
-    <p style="color:#B1B2B2 !important">Current User: {{currentUser.firstName}}</p>
-    
-    <h3 style="color:#B1B2B2 !important">Your Account</h3>
-    <ul>
-        <li style="color:#B1B2B2 !important" *ngFor="let user of users">
-            {{user.username}} ({{user.firstName}} {{user.lastName}})
-            - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-        </li>
-    </ul>
-</div>
+
+<h1 style="color:#B1B2B2 !important">Account</h1>
+<p style="color:#B1B2B2 !important">Current User: {{currentUser.firstName}}</p>
+
+<h3 style="color:#B1B2B2 !important">Your Account</h3>
+<ul>
+    <li style="color:#B1B2B2 !important" *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul>
