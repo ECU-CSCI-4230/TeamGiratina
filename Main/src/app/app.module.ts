@@ -9,6 +9,9 @@ import { routing }        from './app.routing';
 import { AlertComponent } from './_components';
 import { JwtInterceptor, ErrorInterceptor, ConfirmEqualValidatorDirective } from './_helpers';
 import { HomeComponent } from './pages/home';
+
+import { FullCalendarModule } from 'ng-fullcalendar';
+
 import { LoginComponent } from './pages/login';
 import { RegisterComponent } from './pages/register';
 import { AccountComponent } from './pages/account';
@@ -19,6 +22,7 @@ import { RecipeshowComponent } from './pages/recipe-show';
 @NgModule({
     imports: [
         BrowserModule,
+        FullCalendarModule,
         ReactiveFormsModule,
         HttpClientModule,
         routing
