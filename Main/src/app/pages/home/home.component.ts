@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, OnDestroy } from '@angular/core';
+﻿import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 
@@ -10,13 +10,18 @@ import { CalendarComponent } from 'ng-fullcalendar';
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
-@Component({ templateUrl: 'home.component.html' })
-export class HomeComponent implements OnInit, OnDestroy {
+@Component({ 
+    selector: 'demo-app',
+    templateUrl: './home.component.html'
+ })
+
+export class HomeComponent implements OnInit{
     currentUser: User;
     currentUserSubscription: Subscription;
     users: User[] = [];
 
 // Full Calendar bs ==============================================
+    
     options: OptionsInput;
     eventsModel: any;
     @ViewChild('fullcalendar') fullcalendar: CalendarComponent;
@@ -34,22 +39,33 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnInit() {
         
         // calendar bs ========================================================
-        this.eventService.getEvents().subscribe(data => {
-            this.calendarOptions = {
-                editable: true,
-                eventLimit: false,
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay,listMonth'
-                },
-                selectable: true,
-                events: [],
-            };
-        });
+        this.options = {
+            editable: true,
+            events: [{
+              title: 'Long Event',
+              start: this.yearMonth + '-07',
+              end: this.yearMonth + '-10'
+            }],
+            customButtons: {
+              myCustomButton: {
+                text: 'custom!',
+                click: function() {
+                  alert('clicked the custom button!');
+                }
+              }
+            },
+            header: {
+              left: 'prev,next today myCustomButton',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            plugins: [ dayGridPlugin, interactionPlugin ]
+        };
 
         // =======================================================================
 
+
+        /*
         if(this.currentUser.username === "Giratina"){
             // show all users
             this.loadAllUsers();
@@ -58,19 +74,31 @@ export class HomeComponent implements OnInit, OnDestroy {
             this.userService.getAll().pipe(first()).subscribe(users => {
                 this.users[0] = this.currentUser;
             });
-        }
+        }**/
         
     }
 
-    clearEvents() {
-        this.events = [];
+    eventClick(model: any) {
+        console.log(model);
+    }
+    eventDragStop(model: any) {
+        console.log(model);
+      }
+    dateClick(model: any) {
+        console.log(model);
+    }
+    updateEvents() {
+        this.eventsModel = [{
+          title: 'Updaten Event',
+          start: this.yearMonth + '-08',
+          end: this.yearMonth + '-10'
+        }];
+    }
+    get yearMonth(): string {
+        const dateObj = new Date();
+        return dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
     }
 
-    loadEvents() {
-        this.eventService.getEvents().subscribe(data => {
-            this.events = data;
-        });
-    }
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks
         this.currentUserSubscription.unsubscribe();
