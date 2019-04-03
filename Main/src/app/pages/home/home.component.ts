@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit{
     }
 
     ngOnInit() {
-        
+
         // calendar bs ========================================================
         this.options = {
             editable: true,
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit{
         /*
         if(this.currentUser.username === "Giratina"){
             // show all users
-            this.loadAllUsers();
+            this.loadAllUsers(); 
         } else {
             // show current user
             this.userService.getAll().pipe(first()).subscribe(users => {
