@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, OnDestroy } from '@angular/core';
+﻿import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 
@@ -32,27 +32,36 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        
+
         // calendar bs ========================================================
-        this.eventService.getEvents().subscribe(data => {
-            this.calendarOptions = {
-                editable: true,
-                eventLimit: false,
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay,listMonth'
-                },
-                selectable: true,
-                events: [],
-            };
-        });
+        this.options = {
+      editable: true,
+      events: [{
+        title: 'Long Event',
+        start: this.yearMonth + '-07',
+        end: this.yearMonth + '-10'
+      }],
+      customButtons: {
+        myCustomButton: {
+          text: 'custom!',
+          click: function() {
+            alert('clicked the custom button!');
+          }
+        }
+      },
+      header: {
+        left: 'prev,next today myCustomButton',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      plugins: [ dayGridPlugin, interactionPlugin ]
+    };
 
         // =======================================================================
 
         if(this.currentUser.username === "Giratina"){
             // show all users
-            this.loadAllUsers();
+            this.loadAllUsers(); 
         } else {
             // show current user
             this.userService.getAll().pipe(first()).subscribe(users => {
@@ -62,6 +71,27 @@ export class HomeComponent implements OnInit, OnDestroy {
         
     }
 
+    eventClick(model) {
+        console.log(model);
+    }
+
+    eventDragStop(model) {
+        console.log(model);
+    }
+
+    dateClick(model) {
+        console.log(model);
+    }
+
+    updateEvents() {
+        this.eventsModel = [{
+            title: 'Update Event',
+            start: this.yearMonth + '-08',
+            end: this.yearMonth + '-10'
+        }];
+    }
+
+/*
     clearEvents() {
         this.events = [];
     }
@@ -71,6 +101,13 @@ export class HomeComponent implements OnInit, OnDestroy {
             this.events = data;
         });
     }
+*/
+
+    get yearMonth(): string {
+        const dateObj = new Date();
+        return dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
+    }
+
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks
         this.currentUserSubscription.unsubscribe();
