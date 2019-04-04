@@ -11,8 +11,9 @@ import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
 @Component({ 
-    selector: 'demo-app',
-    templateUrl: './home.component.html'
+    selector: 'app-root',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
  })
 
 export class HomeComponent implements OnInit{
@@ -50,7 +51,7 @@ export class HomeComponent implements OnInit{
               myCustomButton: {
                 text: 'custom!',
                 click: function() {
-                  alert('clicked the custom button!');
+                  alert('yeet!');
                 }
               }
             },
@@ -89,7 +90,7 @@ export class HomeComponent implements OnInit{
     }
     updateEvents() {
         this.eventsModel = [{
-          title: 'Updaten Event',
+          title: 'Update Event',
           start: this.yearMonth + '-08',
           end: this.yearMonth + '-10'
         }];
