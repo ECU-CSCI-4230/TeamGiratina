@@ -3,9 +3,6 @@ import java.util.List;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
  
-/**
-* Created by TutorialKart on 31/10/17.
-*/
 public class DocMaker {
     public static void main(String[] args) {
         MongoClient mongoClient = null;
