@@ -10,7 +10,7 @@ import { AlertComponent } from './_components';
 import { JwtInterceptor, ErrorInterceptor, ConfirmEqualValidatorDirective } from './_helpers';
 import { HomeComponent } from './pages/home';
 
-import { FullCalendarModule } from 'ng-fullcalendar';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 import { LoginComponent } from './pages/login';
 import { RegisterComponent } from './pages/register';

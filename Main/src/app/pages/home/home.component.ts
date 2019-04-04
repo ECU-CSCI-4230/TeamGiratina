@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 import { OptionsInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { CalendarComponent } from 'ng-fullcalendar';
+import { FullCalendarComponent } from '@fullcalendar/angular'; 
 
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
@@ -25,7 +25,8 @@ export class HomeComponent implements OnInit{
     
     options: OptionsInput;
     eventsModel: any;
-    @ViewChild('fullcalendar') fullcalendar: CalendarComponent;
+    @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
+
 // ===============================================================
 
     constructor(
