@@ -25,8 +25,8 @@ export class NewRecipeComponent implements OnInit {
         this.recipeForm = this.formBuilder.group({
             // username: ['', Validators.required],
             title: ['', Validators.required],
-            // description: ['', [Validators.required]],
-            // serves: ['', Validators.required],
+            description: ['', [Validators.required]],
+            serves: ['', Validators.required],
             // imageUrl: [''],
             // ingredients: ['', [Validators.required]],
             // instructions: ['', [Validators.required]]
@@ -50,7 +50,7 @@ export class NewRecipeComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Recipe added successfully', true);
-                    this.router.navigate(['/recipes-show']);
+                    this.router.navigate(['/recipe-show']);
                 },
                 error => {
                     this.alertService.error(error);

@@ -16,7 +16,7 @@ const appRoutes: Routes = [
     { path: 'account', component: AccountComponent },
     { path: 'contact', component: ContactComponent},
     { path: 'recipe-show', component: RecipeshowComponent },
-    { path: 'new-recipe', component: NewRecipeComponent },
+    { path: 'recipe/new', component: NewRecipeComponent },
 
 
     // otherwise redirect to home

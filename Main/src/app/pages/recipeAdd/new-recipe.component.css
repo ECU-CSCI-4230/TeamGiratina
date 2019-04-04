@@ -24,3 +24,28 @@
     margin-right: 1em;
     min-width: 100px;
 }
+
+.jumbotron-head {
+    background: url('https://www.rainbowvalley.com.au/wp-content/uploads/2017/02/food-background.jpg');
+    background-size: cover;
+    border-radius: 0;
+    background-color: black;
+    height: 200px;
+  }
+
+.jumbotron {
+    background-color:black; 
+}
+
+.jumbotron-main {
+    background-color:black;
+    min-height: 100vh;
+    height: 100%;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+}
+
+.section {
+    padding: 0px;
+    margin: 0px;
+}
