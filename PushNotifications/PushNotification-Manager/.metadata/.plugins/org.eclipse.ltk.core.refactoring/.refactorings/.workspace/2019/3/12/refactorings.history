@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;PushNotifications-Manager&apos;" deleteContents="false" description="Delete resource &apos;PushNotifications-Manager&apos;" element1="/PushNotifications-Manager" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1553287155109"/>&#x0A;<refactoring comment="Delete resource &apos;Secretary&apos;" deleteContents="false" description="Delete resource &apos;Secretary&apos;" element1="/Secretary" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1553287552575"/>
+</session>

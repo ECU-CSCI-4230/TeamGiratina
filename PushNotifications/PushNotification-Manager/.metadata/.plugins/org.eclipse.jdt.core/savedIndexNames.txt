@@ -1,0 +1,8 @@
+INDEX VERSION 1.131+E:\Documents\GitHub\TeamGiratina\PushNotifications\PushNotification-Manager\.metadata\.plugins\org.eclipse.jdt.core
+3630268115.index
+82278725.index
+2315331399.index
+2842528100.index
+3133764297.index
+2813768970.index
+2238156975.index
