@@ -3,6 +3,7 @@
 <full-calendar
   *ngIf="options"
   #fullcalendar
+  defaultView="dayGridMonth"
   [editable]="true"
   [events]="eventsModel"
   [header]="options.header"
@@ -11,5 +12,7 @@
   (eventDragStop)="eventDragStop($event)"
   [plugins]="options.plugins"
   (eventClick)="eventClick($event)"
-></full-calendar>
+>
+	
+</full-calendar>
 <router-outlet></router-outlet>
