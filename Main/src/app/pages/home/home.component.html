@@ -8,11 +8,9 @@
   [events]="eventsModel"
   [header]="options.header"
   [customButtons]="options.customButtons"
-  (dateClick)="dateClick($event)"
+  (dateClick)="handleDateClick($event)"
   (eventDragStop)="eventDragStop($event)"
-  [plugins]="options.plugins"
+  [plugins]="calendarPlugins"
   (eventClick)="eventClick($event)"
->
-	
-</full-calendar>
+></full-calendar>
 <router-outlet></router-outlet>

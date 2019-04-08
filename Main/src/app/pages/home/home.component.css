@@ -8,6 +8,10 @@
   max-width: 900px;
 }
 
+.fc-highlight {
+  /* when user is selecting cells */
+  background: #bce8f1;
+  opacity: .3; }
 
 h1 {
 	color: #FA58F4;

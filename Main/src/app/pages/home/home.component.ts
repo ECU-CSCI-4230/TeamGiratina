@@ -21,14 +21,6 @@ export class HomeComponent implements OnInit{
     currentUserSubscription: Subscription;
     users: User[] = [];
 
-// Full Calendar bs ==============================================
-    
-    options: OptionsInput;
-    eventsModel: any;
-    @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
-
-// ===============================================================
-
     constructor(
         private authenticationService: AuthenticationService,
         private userService: UserService
@@ -37,6 +29,16 @@ export class HomeComponent implements OnInit{
             this.currentUser = user;
         });
     }
+
+// Full Calendar bs ==============================================
+
+    options: OptionsInput;
+    eventsModel: any;
+    @ViewChild('fullcalendar') calendarComponent: FullCalendarComponent;
+
+    calendarPlugins = [dayGridPlugin];
+
+// ===============================================================
 
     ngOnInit() {
 
@@ -57,7 +59,7 @@ export class HomeComponent implements OnInit{
               }
             },
             header: {
-              left: 'prev,next today myCustomButton',
+              left: 'prev, next today myCustomButton',
               center: 'title',
               right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
@@ -83,12 +85,27 @@ export class HomeComponent implements OnInit{
     eventClick(model: any) {
         console.log(model);
     }
+
     eventDragStop(model: any) {
         console.log(model);
-      }
+    }
+
     dateClick(model: any) {
         console.log(model);
     }
+
+    handleDateClick(arg: any) {
+        alert(arg.dateStr);
+    }
+
+    updateHeader() {
+        this.options.header = {
+            left: 'prev, next today myCustomButton',
+            center: 'title',
+            right: 'timeGridDay'
+        };
+    }
+
     updateEvents() {
         this.eventsModel = [{
           title: 'Update Event',
@@ -99,6 +116,12 @@ export class HomeComponent implements OnInit{
     get yearMonth(): string {
         const dateObj = new Date();
         return dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
+    }
+
+    // calendar API stuff
+    someMethod() {
+        let calendarApi = this.calendarComponent.getApi();
+        calendarApi.next();
     }
 
     ngOnDestroy() {
