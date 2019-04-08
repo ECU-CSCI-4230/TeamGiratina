@@ -9,16 +9,16 @@ public class DocMaker {
         try {
             mongoClient = new MongoClient( "127.0.0.1" , 27017 );
             List<String> dbs = mongoClient.getDatabaseNames();
+            System.out.println("The databases that exist on this server are:\n");
             for(int i = 0; i < dbs.size(); i++) {
             	System.out.println(dbs.get(i));
             }
- 
-            System.out.println("Connected to MongoDB!");
+
         } catch (MongoException e) {
             e.printStackTrace();
         } finally {
             if(mongoClient!=null)
-                mongoClient.close();
+            System.out.println("Connected to MongoDB!");
         }
     }
 }
