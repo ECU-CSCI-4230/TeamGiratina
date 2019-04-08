@@ -21,8 +21,9 @@ public class TestSendSMS {
 					+ "Note 0: must include country code + 10 digits. (Example: +19194577950)\n"
 					+ "Note 1: USA code = +1\n");
 			stuff[0] = kbd.next();
-			if(stuff[0].length() == 10 && stuff[0].startsWith("+1")) {
-				
+			System.out.println(stuff[0].length());
+			if(stuff[0].length() == 13 && stuff[0].startsWith("+1")) {
+				validated = true;
 			}
 		}
 		System.out.print("Please enter a messege to send to " + stuff[0] + ":\n");
