@@ -1,0 +1,12 @@
+
+import SendSMS;
+
+public class TestSendSMS {
+	public static void main() {
+	    SendSMS s = new SendSMS();
+	    String[] stuff = new String[2];
+	    stuff[0] = "+19194577950";
+	    stuff[1] = "Hello world!";
+	    s.sendTxt(stuff);
+	}
+}

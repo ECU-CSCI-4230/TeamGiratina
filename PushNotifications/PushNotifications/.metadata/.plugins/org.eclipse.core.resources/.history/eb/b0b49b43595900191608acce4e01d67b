@@ -1,0 +1,99 @@
+
+
+import java.io.*;
+
+public class TestSendSMS {
+  public static void main(String args[]) throws IOException {
+	    String line;
+	    OutputStream stdin = null;
+	    InputStream stderr = null;
+	    InputStream stdout = null;
+
+	      // launch EXE and grab stdin/stdout and stderr
+	      Process process = Runtime.getRuntime ().exec ("/folder/exec.exe");
+	      stdin = process.getOutputStream ();
+	      stderr = process.getErrorStream ();
+	      stdout = process.getInputStream ();
+
+	      // "write" the parms into stdin
+	      line = "param1" + "\n";
+	      try {
+			stdin.write(line.getBytes() );
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	      try {
+			stdin.flush();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+	      line = "param2" + "\n";
+	      try {
+			stdin.write(line.getBytes() );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	      try {
+			stdin.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	      line = "param3" + "\n";
+	      try {
+			stdin.write(line.getBytes() );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	      try {
+			stdin.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	      try {
+			stdin.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	      // clean up if any output in stdout
+	      BufferedReader brCleanUp =
+	        new BufferedReader (new InputStreamReader (stdout));
+	      try {
+			while ((line = brCleanUp.readLine ()) != null) {
+			    //System.out.println ("[Stdout] " + line);
+			  }
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	      brCleanUp.close();
+
+	      // clean up if any output in stderr
+	      brCleanUp =
+	        new BufferedReader (new InputStreamReader (stderr));
+	      try {
+			while ((line = brCleanUp.readLine ()) != null) {
+			    //System.out.println ("[Stderr] " + line);
+			  }
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	      try {
+			brCleanUp.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  }
+}

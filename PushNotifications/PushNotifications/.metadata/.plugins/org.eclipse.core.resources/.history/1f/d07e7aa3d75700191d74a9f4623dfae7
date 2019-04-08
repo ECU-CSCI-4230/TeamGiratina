@@ -1,0 +1,15 @@
+// win xp
+import java.io.*;
+public class TestSendSMS {
+  public static void main(String argv[]) {
+    try {
+      String line;
+      Process p = Runtime.getRuntime().exec("test.cmd");
+      p.waitFor();
+      System.out.println(p.exitValue());
+    }
+    catch (Exception err) {
+      err.printStackTrace();
+    }
+  }
+}

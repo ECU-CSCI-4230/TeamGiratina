@@ -1,0 +1,44 @@
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+/* 
+ * Luke Pearson 3/12/2019
+ *  SendSMS will send a text message. The program requires two command line parameters.
+ *  
+ *  SendSMS num "message"
+ *  
+ *  num is the phone number that you want to send a message to. "message" is the String that
+ *  will be the meat and potato of the message.
+ *  
+ *  Example:
+ *  SendSMS +19194577950 "This is the text"
+ */
+
+
+public class TestSendSMS {
+
+    public static void main(String[] args) {
+    	Scanner kbd = new Scanner(System.in);
+    	String number = new String();
+    	String messege = new String();
+    	
+    	System.out.println("Please enter the phone number that you want to send a text to.\n "
+    			+ "(Remember that the number must be registered with Twilio!)\n");
+    	number = kbd.next();
+    	
+    	System.out.println("\nPlease enter a messege for the recepiant.");
+    	messege = kbd.next();
+    	
+    	try {
+    		Runtime runtime = Runtime.getRuntime();
+    		Process process = runtime.exec("java -classpath E:\\Documents\\GitHub\\TeamGiratina\\PushNotifications\\PushNotifications\\SendSMS\\ejbModule default.SendSMS" + number + messege);
+    	}
+    	catch(IOException e){
+    		e.printStackTrace();
+    		System.out.println("Error");
+    	}
+    	
+    }
+} 
