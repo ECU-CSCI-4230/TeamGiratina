@@ -1,7 +1,6 @@
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
@@ -11,12 +10,40 @@ public class DocMaker {
 	public static void main(String[] args) {
 		MongoClient mongoClient = connectToServer();
 		DB db = selectDB(mongoClient);
-		listCollections(db);
+		db = selectCollection(mongoClient, db);
+		
+		
+		
+		
+		
+
+		
+		
+	}
+
+	private static DB selectCollection(MongoClient mongoClient, DB db) {
+		Scanner kbd = new Scanner(System.in);
+		String response = "c";
+		String collection = null;
+		while (!response.startsWith("y")) {
+			System.out.println("Which collection would you like to use?");
+			listCollections(db);
+			collection = kbd.next(); 
+			if (!db.getCollectionNames().contains(collection)) {
+				System.out.println(collection + " does not exist in database.");
+			}
+			else {
+				System.out.println("Do you want to use the collection " + collection + "? y/n");
+				response = kbd.next().toLowerCase();
+			}
+		}
+		kbd.close();
+		return db;
 	}
 
 	private static void listCollections(DB db) {
 		Set<String> collections = db.getCollectionNames();
-		System.out.println("The collections that exist in this db are:");
+		System.out.println("The collections that exist in " + db.getName() + " are:");
 		for(int i = collections.size(); i > 0; i--) {
 			System.out.println(collections.iterator().next());
 		}
@@ -28,15 +55,15 @@ public class DocMaker {
 		String database = null;
 		while (!response.startsWith("y")) {
 			listDatabases(mongoClient);
-			System.out.println("Which db do you want to grab? Enter a new name to create a new db.");
-			database = kbd.next();
+			System.out.println("Which db do you want to grab?");
+			database = kbd.next(); 
 			List<String> dbs = mongoClient.getDatabaseNames();
 			if (!dbs.contains(database)) {
-				System.out.println("Do you want to make a new database with the name \"" + database + "\"? y/n");
-				response = kbd.next().toLowerCase();
+				System.out.println(database + " does not exist on server.");
 			}
 			else {
-				response = "y";
+				System.out.println("Do you want grab the db " + database + "? y/n");
+				response = kbd.next().toLowerCase();
 			}
 		}
 		return mongoClient.getDB(database);
