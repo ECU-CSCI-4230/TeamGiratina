@@ -7,7 +7,6 @@ import { AccountComponent } from './pages/account';
 import { AuthGuard } from './_guards';
 import { ContactComponent } from './pages/contact';
 import { RecipeshowComponent } from './pages/recipe-show';
-import { NewRecipeComponent } from './pages/recipeAdd';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -16,7 +15,6 @@ const appRoutes: Routes = [
     { path: 'account', component: AccountComponent },
     { path: 'contact', component: ContactComponent},
     { path: 'recipe-show', component: RecipeshowComponent },
-    { path: 'recipe/new', component: NewRecipeComponent },
 
 
     // otherwise redirect to home

@@ -5,10 +5,7 @@ import { first } from 'rxjs/operators';
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
-@Component({ 
-    templateUrl: 'recipe-show.component.html',
-    styleUrls: ['recipe-show.component.css']
- })
+@Component({ templateUrl: 'recipe-show.component.html' })
 export class RecipeshowComponent implements OnInit, OnDestroy {
     currentUser: User;
     currentUserSubscription: Subscription;

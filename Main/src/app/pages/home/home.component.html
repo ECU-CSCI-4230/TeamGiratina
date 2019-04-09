@@ -1,10 +1,94 @@
+<style>
+    * {box-sizing: border-box;}
+    ul {list-style-type: none;}
+    body {font-family: Verdana, sans-serif;}
+    
+    .month {
+      padding: 100px 25px;
+      width: 100%;
+      background: black;
+      text-align: center;
+    }
+    
+    .month ul {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .month ul li {
+      color: #B1B2B2;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    
+    .month .prev {
+      float: left;
+      padding-top: 10px;
+    }
+    
+    .month .next {
+      float: right;
+      padding-top: 10px;
+    }
+    
+    .weekdays {
+      margin: 0;
+      padding: 10px 0;
+      background-color: #B1B2B2;
+    }
+    
+    .weekdays li {
+      display: inline-block;
+      width: 13.6%;
+      color: black;
+      text-align: center;
+    }
+    
+    .days {
+      padding: 10px 0;
+      background: black;
+      margin: 0;
+    }
+    
+    .days li {
+      list-style-type: none;
+      display: inline-block;
+      width: 13.6%;
+      text-align: center;
+      margin-bottom: 5px;
+      font-size:12px;
+      color: #B1B2B2;
+    }
+    
+    .days li .active {
+      padding: 5px;
+      background: #B1B2B2;
+      color: black !important
+    }
+    
+    /* Add media queries for smaller screens */
+    @media screen and (max-width:720px) {
+      .weekdays li, .days li {width: 13.1%;}
+    }
+    
+    @media screen and (max-width: 420px) {
+      .weekdays li, .days li {width: 12.5%;}
+      .days li .active {padding: 2px;}
+    }
+    
+    @media screen and (max-width: 290px) {
+      .weekdays li, .days li {width: 12.2%;}
+    }
+    </style>
+
 <h1 style="color: #B1B2B2"align="center">Welcome to Lifestyle Hero!</h1>
 <div class="month">      
   <ul>
     <li class="prev">&#10094;</li>
     <li class="next">&#10095;</li>
     <li>
-      <span style="font-size:40px">April</span><br>
+      <span style="font-size:40px">March</span><br>
       <span style="font-size:25px">2019</span>
     </li>
   </ul>
@@ -20,11 +104,15 @@
   <li>Su</li>
 </ul>
   
-<ul class="days">    
+<ul class="days">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>    
   <li>1</li>
   <li>2</li>
   <li>3</li>
-  <li><span class="active">4</span></li>
+  <li>4</li>
   <li>5</li>
   <li>6</li>
   <li>7</li>
@@ -34,7 +122,7 @@
   <li>11</li>
   <li>12</li>
   <li>13</li>
-  <li>14</li>
+  <li><span class="active">14</span></li>
   <li>15</li>
   <li>16</li>
   <li>17</li>

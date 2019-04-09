@@ -1,4 +1,15 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark">    
+﻿<style>
+.jumbotron{
+    min-height: 100vh;
+    height: 100%;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+}
+</style>
+
+
+<!-- nav -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" routerLink="/">Lifestyle Hero</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -23,8 +34,22 @@
     </span>
   </div>
 </nav>
-<router-outlet></router-outlet>
+<body bg-color= "black">
+<!-- main app container -->
 
+<div style="background:#0B1E37 !important" class="jumbotron" >
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <alert></alert>
+        <br>
+        <br>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 
 <!-- credits
 <div class="text-center">
