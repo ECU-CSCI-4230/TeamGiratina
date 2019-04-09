@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 
 import { OptionsInput } from '@fullcalendar/core';
+import { EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { FullCalendarComponent } from '@fullcalendar/angular'; 
@@ -36,7 +37,12 @@ export class HomeComponent implements OnInit{
     eventsModel: any;
     @ViewChild('fullcalendar') calendarComponent: FullCalendarComponent;
 
-    calendarPlugins = [dayGridPlugin];
+    calendarVisible = true;
+    calendarPlugins = [dayGridPlugin, interactionPlugin];
+    calendarWeekends = true;
+    calendarEvents: EventInput[] = [
+        { title: 'Event Now', start: new Date() }
+    ];
 
 // ===============================================================
 
@@ -94,8 +100,27 @@ export class HomeComponent implements OnInit{
         console.log(model);
     }
 
+    toggleVisible() {
+        this.calendarVisible = !this.calendarVisible;
+    }
+
+    toggleWeekends() {
+        this.calendarWeekends = !this.calendarWeekends;
+    }
+
+    gotoPast() {
+        let calendarApi = this.calendarComponent.getApi();
+        calendarApi.gotoDate('2000-01-01'); // call a method on the Calendar object
+  }
+
     handleDateClick(arg: any) {
-        alert(arg.dateStr);
+        if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
+            this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
+                title: 'New Event',
+                start: arg.date,
+                allDay: arg.allDay
+            })
+        }
     }
 
     updateHeader() {
