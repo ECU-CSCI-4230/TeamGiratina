@@ -1,55 +1,29 @@
-<style>
-    body {
-      font-family: "Lato", sans-serif;
-    }
-    
-    .sidenav {
-      width: 200px;
-      position: fixed;
-      z-index: 1;
-      top: px;
-      left: 10px;
-      background: #111;
-      overflow-x: hidden;
-      padding: 8px 0;
-    }
-    
-    .sidenav a {
-      padding: 6px 8px 6px 16px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-    }
-    
-    .sidenav a:hover {
-      color: #064579;
-    }
-    
-    .main {
-      margin-left: 140px; /* Same width as the sidebar + left position in px */
-      font-size: 28px; /* Increased text to enable scrolling */
-      padding: 0px 10px;
-    }
-    
-    @media screen and (max-height: 450px) {
-      .sidenav {padding-top: 15px;}
-      .sidenav a {font-size: 18px;}
-    }
-    </style>
-
-<div class="sidenav">
-    <a routerLink="/preferences">Preferences</a>
-    <a routerLink="#services">help</a>
-    <a routerLink="#clients">Clients</a>
-    <a routerLink="/contact">Contact</a>
-</div>
-  
-
-
-<h1 style="color:#B1B2B2 !important">recipe</h1>
-
-<h3 style="color:#B1B2B2 !important">Your Preferences</h3>
-<ul>
-    
-</ul>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Recipes, Stuff & You</h1>
+    <div class="d-flex justify-content-center">
+      <p class="lead w-50">
+        A collection of our favorite recipes!
+      </p>
+    </div>
+    <p>
+      <a routerLink="/recipe/new" class="btn btn-primary">Add New Recipe</a>
+    </p>
+  </div>
+</section>
+<section class="container">
+  <div class="row">
+    <ng-container *ngFor="let recipe of recipeService.getRecipes()">
+      <div class="col d-flex justify-content-center">
+        <div class="card">
+          <img class="card-img-top" [src]="recipe.imageUrl" alt="{{recipe.title}}">
+          <div class="card-body">
+            <h5 class="card-title">{{recipe.title}}</h5>
+            <p class="card-text">{{recipe.description}}</p>
+            <a routerLink="/recipes/{{recipe.id}}" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>
