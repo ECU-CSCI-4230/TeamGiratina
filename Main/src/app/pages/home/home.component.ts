@@ -6,6 +6,7 @@ import { OptionsInput } from '@fullcalendar/core';
 import { EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
 import { FullCalendarComponent } from '@fullcalendar/angular'; 
 
 import { User } from '@/_models';
@@ -33,12 +34,13 @@ export class HomeComponent implements OnInit{
 
 // Full Calendar bs ==============================================
 
+
     options: OptionsInput;
     eventsModel: any;
     @ViewChild('fullcalendar') calendarComponent: FullCalendarComponent;
 
     calendarVisible = true;
-    calendarPlugins = [dayGridPlugin, interactionPlugin];
+    calendarPlugins = [dayGridPlugin, timeGridPlugin, interactionPlugin];
     calendarWeekends = true;
     calendarEvents: EventInput[] = [
         { title: 'Event Now', start: new Date() }
@@ -67,9 +69,9 @@ export class HomeComponent implements OnInit{
             header: {
               left: 'prev, next today myCustomButton',
               center: 'title',
-              right: 'dayGridMonth,timeGridWeek,timeGridDay'
+              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
             },
-            plugins: [ dayGridPlugin, interactionPlugin ]
+            plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ]
         };
 
         // =======================================================================
@@ -110,7 +112,7 @@ export class HomeComponent implements OnInit{
 
     gotoPast() {
         let calendarApi = this.calendarComponent.getApi();
-        calendarApi.gotoDate('2000-01-01'); // call a method on the Calendar object
+        calendarApi.gotoDate('1277-01-01'); // call a method on the Calendar object
   }
 
     handleDateClick(arg: any) {

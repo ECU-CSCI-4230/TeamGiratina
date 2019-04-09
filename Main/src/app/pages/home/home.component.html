@@ -1,3 +1,5 @@
+
+
 <div class='app'>
 
   <div class='app-top'>
@@ -9,7 +11,8 @@
 
   <div class='app-calendar' *ngIf="calendarVisible">
     <full-calendar
-      #calendar
+    	schedulerLicenseKey="GPL-My-Project-Is-Open-Source"
+      #fullcalendar
       defaultView="dayGridMonth"
       [header]="{
         left: 'prev,next today',
