@@ -5,7 +5,7 @@ export class Recipe {
     title: string;
     description: string;
     serves: string;
-    imageUrl: string;
-    ingredients: Ingredient[];
-    instructions: string[];
+    // imageUrl: string;
+    // ingredients: Ingredient[];
+    // instructions: string[];
 }

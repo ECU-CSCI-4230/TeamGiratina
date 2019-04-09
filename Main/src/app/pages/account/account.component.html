@@ -1,43 +1,3 @@
-<style>
-body {
-  font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: px;
-  left: 10px;
-  background: #111;
-  overflow-x: hidden;
-  padding: 8px 0;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #064579;
-}
-
-.main {
-  margin-left: 140px; /* Same width as the sidebar + left position in px */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-</style>
 <div class="sidenav">
     <a routerLink="/preferences">Preferences</a>
     <a routerLink="#services">help</a>
@@ -46,14 +6,17 @@ body {
 </div>
   
 
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 style="color:#B1B2B2 !important">Account</h1>
+        <p style="color:#B1B2B2 !important">Current User: {{currentUser.firstName}}</p>
 
-<h1 style="color:#B1B2B2 !important">Account</h1>
-<p style="color:#B1B2B2 !important">Current User: {{currentUser.firstName}}</p>
-
-<h3 style="color:#B1B2B2 !important">Your Account</h3>
-<ul>
-    <li style="color:#B1B2B2 !important" *ngFor="let user of users">
-        {{user.username}} ({{user.firstName}} {{user.lastName}})
-        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-    </li>
-</ul>
+        <h3 style="color:#B1B2B2 !important">Your Account</h3>
+        <ul>
+            <li style="color:#B1B2B2 !important" *ngFor="let user of users">
+                {{user.username}} ({{user.firstName}} {{user.lastName}})
+                - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+            </li>
+        </ul>
+    </div>
+</div>

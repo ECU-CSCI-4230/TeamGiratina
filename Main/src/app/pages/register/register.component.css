@@ -1,0 +1,15 @@
+.jumbotron {
+    background-color: black;
+    background-size: cover;
+    padding-bottom: 8%;
+    max-height: 80%;
+}
+
+.container {
+    width: 50%;
+}
+
+.chkbox {
+    padding-left: 10px;
+    display: inline;
+  }
