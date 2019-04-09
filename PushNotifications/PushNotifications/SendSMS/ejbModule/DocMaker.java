@@ -10,15 +10,7 @@ public class DocMaker {
 	public static void main(String[] args) {
 		MongoClient mongoClient = connectToServer();
 		DB db = selectDB(mongoClient);
-		db = selectCollection(mongoClient, db);
-		
-		
-		
-		
-		
-
-		
-		
+		db = selectCollection(mongoClient, db);	
 	}
 
 	private static DB selectCollection(MongoClient mongoClient, DB db) {
@@ -66,6 +58,7 @@ public class DocMaker {
 				response = kbd.next().toLowerCase();
 			}
 		}
+		kbd.close();
 		return mongoClient.getDB(database);
 	}
 
