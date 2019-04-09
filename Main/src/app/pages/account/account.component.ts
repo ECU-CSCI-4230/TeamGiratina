@@ -5,7 +5,9 @@ import { first } from 'rxjs/operators';
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
-@Component({ templateUrl: 'account.component.html' })
+@Component({ templateUrl: 'account.component.html', 
+            styleUrls: ['account.component.css'],
+            './../../../styles.css'})
 export class AccountComponent implements OnInit, OnDestroy {
     currentUser: User;
     currentUserSubscription: Subscription;
