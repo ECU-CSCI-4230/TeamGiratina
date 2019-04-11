@@ -4,8 +4,10 @@
     display: inline;
   }
 </style>
+<div style="background:#0B1E37 !important" class="jumbotron" >
 
-<h2 style="color:#B1B2B2 !important">Register</h2>
+<div class="text">
+<h2 class = "text">Register</h2>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class='body'>
     <div style="color:#B1B2B2 !important" class="form-group">
         <label for="firstName">First Name</label>
@@ -62,41 +64,43 @@
     <br>
 
     <div style="color:#B1B2B2 !important" class="form-group">
-        <input type="checkbox" formControlName="notify" id="notify" [ngClass]="{ 'is-invalid': submitted && f.notify.errors }"
+        <input type="checkbox" [(ngModel)]="notify" formControlName="notify" id="notify" [ngClass]="{ 'is-invalid': submitted && f.notify.errors }"
         />
-        <label for="notify" class="chkbox"> Would You Like To Receive Notifications? (Through Text Messages)</label>
+        <label for="notify" class="chkbox" > Would You Like To Receive Notifications? (Through Text Messages)</label>
     </div>
     <br>
 
-    <div style="color:#B1B2B2 !important" class="form-group">
-        <label for="phoneNumber">Phone Number</label>
-        <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
-        />
-        <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
-            <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+
+    <div *ngIf="notify">
+        <div style="color:#B1B2B2 !important" class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+            />
+            <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+            </div>
+        </div>
+
+        <h4 style="color:#B1B2B2 !important">Which Notifications would you like to receive?</h4>
+        
+        <div style="color:#B1B2B2 !important" class="form-group">
+            <input type="checkbox" formControlName="notifyExercise" id="notifyExercise" [ngClass]="{ 'is-invalid': submitted && f.notifyExercise.errors }"
+            />
+            <label for="notifyExercise" class="chkbox">To Exercise</label>
+        </div>
+
+        <div style="color:#B1B2B2 !important" class="form-group">
+            <input type="checkbox" formControlName="notifyWater" id="notifyWater" [ngClass]="{ 'is-invalid': submitted && f.notifyWater.errors }"
+            />
+            <label for="notifyWater" class="chkbox">To Drink Water</label>
+        </div>
+
+        <div style="color:#B1B2B2 !important" class="form-group">
+            <input type="checkbox" formControlName="notifyCook" id="notifyCook" [ngClass]="{ 'is-invalid': submitted && f.notifyCook.errors }"
+            />
+            <label for="notifyCook" class="chkbox">To Cook</label>
         </div>
     </div>
-
-    <h4 style="color:#B1B2B2 !important">Which Notifications would you like to receive?</h4>
-    
-    <div style="color:#B1B2B2 !important" class="form-group">
-        <input type="checkbox" formControlName="notifyExercise" id="notifyExercise" [ngClass]="{ 'is-invalid': submitted && f.notifyExercise.errors }"
-        />
-        <label for="notifyExercise" class="chkbox">To Exercise</label>
-    </div>
-
-    <div style="color:#B1B2B2 !important" class="form-group">
-        <input type="checkbox" formControlName="notifyWater" id="notifyWater" [ngClass]="{ 'is-invalid': submitted && f.notifyWater.errors }"
-        />
-        <label for="notifyWater" class="chkbox">To Drink Water</label>
-    </div>
-
-    <div style="color:#B1B2B2 !important" class="form-group">
-        <input type="checkbox" formControlName="notifyCook" id="notifyCook" [ngClass]="{ 'is-invalid': submitted && f.notifyCook.errors }"
-        />
-        <label for="notifyCook" class="chkbox">To Cook</label>
-    </div>
-
     <br>
    
 
@@ -107,3 +111,9 @@
         <a routerLink="/login" class="btn btn-link">Cancel</a>
     </div>
 </form>
+
+</div>
+    
+            
+
+    </div>
