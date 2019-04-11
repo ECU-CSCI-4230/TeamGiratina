@@ -13,6 +13,7 @@ export class PreferencesComponent implements OnInit, OnDestroy {
     currentUser: User;
     currentUserSubscription: Subscription;
     users: User[] = [];
+    checked: boolean;
 
     constructor(
         private authenticationService: AuthenticationService,
