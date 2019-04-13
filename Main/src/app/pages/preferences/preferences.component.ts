@@ -1,23 +1,31 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { User } from '@/_models';
-import { UserService, AuthenticationService } from '@/_services';
+import { AlertService, UserService, AuthenticationService } from '@/_services';
 
 @Component({ templateUrl: 'preferences.component.html', 
             styleUrls: ['preferences.component.css',
             './../../../styles.css']
          })
-export class PreferencesComponent implements OnInit, OnDestroy {
+export class PreferencesComponent implements OnInit{
     currentUser: User;
     currentUserSubscription: Subscription;
     users: User[] = [];
-    checked: boolean;
+    updateForm: FormGroup;
+    loading = false;
+    submitted = false;
+    notify: boolean;
 
     constructor(
+        private formBuilder: FormBuilder,
+        private router: Router,
         private authenticationService: AuthenticationService,
-        private userService: UserService
+        private userService: UserService,
+        private alertService: AlertService
     ) {
         this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
             this.currentUser = user;
@@ -26,32 +34,41 @@ export class PreferencesComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         
-        if(this.currentUser.username === "Giratina"){
-            // show all users
-            this.loadAllUsers();
-        } else {
-            // show current user
-            this.userService.getAll().pipe(first()).subscribe(users => {
-                this.users[0] = this.currentUser;
-            });
-        }
+        this.updateForm = this.formBuilder.group({
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            username: ['', Validators.required],
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+            phoneNumber: ['', Validators.required],
+            notify: [false],
+            notifyWater: [false],
+            notifyExercise: [false],
+            notifyCook: [false]
+        });
         
     }
 
-    ngOnDestroy() {
-        // unsubscribe to ensure no memory leaks
-        this.currentUserSubscription.unsubscribe();
-    }
+    onSubmit() {
+        this.submitted = true;
 
-    deleteUser(id: number) {
-        this.userService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllUsers()
-        });
-    }
+        // stop here if form is invalid
+        if (this.updateForm.invalid) {
+            return;
+        }
 
-    private loadAllUsers() {
-        this.userService.getAll().pipe(first()).subscribe(users => {
-            this.users = users;
-        });
+        this.loading = true;
+        this.userService.update(this.updateForm.value)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.alertService.success('Update successful', true);
+                    this.router.navigate(['/account']);
+                },
+                error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                });
     }
 }

@@ -1,8 +1,57 @@
-<div class = "text">
-    <input type="checkbox" [(ngModel)]="checked"/> Would you like to recieve Notifications?
 
-
-    <div *ngIf="checked">
-        Hello
+<!--div class = "text">
+    <input type="checkbox" class="chkbox" [(ngModel)]="notify"/> 
+    <label for="notify" class="chkbox">Would you like to recieve Notifications?</label>    
+    
+    <div *ngIf="notify">
+        Hidden
     </div>
-</div>
+</div-->
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()" class='body'>
+    <div class="form-group text">
+        <input type="checkbox" [(ngModel)]="notify" formControlName="notify" id="notify" [ngClass]="{ 'is-invalid': submitted && f.notify.errors }"
+        />
+        <label for="notify" class="chkbox" > Would You Like To Receive Notifications? (Through Text Messages)</label>
+    </div>
+    <br>
+
+
+    <div *ngIf="notify">
+        <div class="form-group text">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+            />
+            <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+            </div>
+        </div>
+
+        <h4 class="form-group text">Which Notifications would you like to receive?</h4>
+        
+        <div class="form-group text">
+            <input type="checkbox" formControlName="notifyExercise" id="notifyExercise" [ngClass]="{ 'is-invalid': submitted && f.notifyExercise.errors }"
+            />
+            <label for="notifyExercise" class="chkbox">To Exercise</label>
+        </div>
+
+        <div class="form-group text">
+            <input type="checkbox" formControlName="notifyWater" id="notifyWater" [ngClass]="{ 'is-invalid': submitted && f.notifyWater.errors }"
+            />
+            <label for="notifyWater" class="chkbox">To Drink Water</label>
+        </div>
+
+        <div class="form-group text">
+            <input type="checkbox" formControlName="notifyCook" id="notifyCook" [ngClass]="{ 'is-invalid': submitted && f.notifyCook.errors }"
+            />
+            <label for="notifyCook" class="chkbox">To Cook</label>
+        </div>
+    </div>
+
+    <div class="form-group text">
+        <button style="background-color:black !important" [disabled]="loading" class="btn btn-primary">Update</button>
+        <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+        />
+        <a routerLink="/account" class="btn btn-link">Cancel</a>
+    </div>
+</form>
+<br>
