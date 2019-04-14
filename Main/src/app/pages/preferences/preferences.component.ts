@@ -30,25 +30,31 @@ export class PreferencesComponent implements OnInit{
         this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
             this.currentUser = user;
         });
+        this.notify = this.currentUser.notify;
     }
+    
 
     ngOnInit() {
         
+        
         this.updateForm = this.formBuilder.group({
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
-            username: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]],
-            confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
-            phoneNumber: ['', Validators.required],
-            notify: [false],
-            notifyWater: [false],
-            notifyExercise: [false],
-            notifyCook: [false]
+            firstName: [this.currentUser.firstName, Validators.required],
+            lastName: [this.currentUser.lastName, Validators.required],
+            email: [this.currentUser.email, [Validators.required, Validators.email]],
+            username: [this.currentUser.username, Validators.required],
+            password: [this.currentUser.password, [Validators.required, Validators.minLength(6)]],
+            confirmPassword: [this.currentUser.password, [Validators.required, Validators.minLength(6)]],
+            phoneNumber: [this.currentUser.phoneNumber],
+            notify: [this.currentUser.notify],
+            notifyWater: [this.currentUser.notifyWater],
+            notifyExercise: [this.currentUser.notifyExercise],
+            notifyCook: [this.currentUser.notifyCook]
         });
         
     }
+
+    // convenience getter for easy access to form fields
+    get f() { return this.updateForm.controls; }
 
     onSubmit() {
         this.submitted = true;
@@ -59,7 +65,7 @@ export class PreferencesComponent implements OnInit{
         }
 
         this.loading = true;
-        this.userService.update(this.updateForm.value)
+        this.userService.update(this.currentUser)
             .pipe(first())
             .subscribe(
                 data => {
@@ -69,6 +75,6 @@ export class PreferencesComponent implements OnInit{
                 error => {
                     this.alertService.error(error);
                     this.loading = false;
-                });
+                }); 
     }
 }

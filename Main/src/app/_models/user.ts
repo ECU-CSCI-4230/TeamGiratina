@@ -5,7 +5,7 @@
     email: string;
     firstName: string;
     lastName: string;
-    phone: string;
+    phoneNumber: string;
     notify: boolean;
     notifyExercise: boolean;
     notifyWater: boolean;
