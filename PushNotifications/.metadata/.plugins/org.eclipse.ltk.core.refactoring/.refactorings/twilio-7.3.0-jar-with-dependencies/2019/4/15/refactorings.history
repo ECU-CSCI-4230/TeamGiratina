@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename field &apos;port&apos; in &apos;DocMaker&apos; to &apos;Port&apos;&#x0D;&#x0A;- Original project: &apos;twilio-7.3.0-jar-with-dependencies&apos;&#x0D;&#x0A;- Original element: &apos;DocMaker.port&apos;&#x0D;&#x0A;- Renamed element: &apos;DocMaker.Port&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;port&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/ejbModule&lt;{DocMaker.java[DocMaker^port" name="Port" references="true" setter="false" stamp="1554766287901" textual="false" version="1.0"/>
-</session>

@@ -1,4 +1,4 @@
-!SESSION 2019-04-08 17:07:03.544 -----------------------------------------------
+!SESSION 2019-04-10 14:31:14.101 -----------------------------------------------
 eclipse.buildId=4.10.0.I20181206-0815
 java.version=11.0.2
 java.vendor=Oracle Corporation
@@ -6,137 +6,10 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.jee.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
 
-!ENTRY org.eclipse.jface.text 2 0 2019-04-08 17:07:29.103
+!ENTRY org.eclipse.jface.text 2 0 2019-04-10 14:31:44.908
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
 
-!ENTRY org.eclipse.egit.ui 2 0 2019-04-08 17:07:31.834
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\tlp31'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-04-08 17:12:47.627 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=11.0.2
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.jee.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
-
-!ENTRY org.eclipse.jface.text 2 0 2019-04-08 17:13:10.763
-!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-04-08 17:13:12.007
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\tlp31'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.jface.text 2 0 2019-04-08 17:26:27.946
-!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
-
-!ENTRY org.eclipse.epp.mpc.ui 1 0 2019-04-08 21:51:21.775
-!MESSAGE Performing Marketplace install request from http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1403812
-
-!ENTRY org.eclipse.epp.mpc.ui 1 0 2019-04-08 21:52:25.761
-!MESSAGE Performing Marketplace install request from http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1403812
-
-!ENTRY org.eclipse.core.jobs 4 2 2019-04-08 21:53:29.372
-!MESSAGE An internal error occurred during: "Install download3".
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.equinox.internal.p2.artifact.repository.SignatureVerifier.verifyContent(SignatureVerifier.java:84)
-	at org.eclipse.equinox.internal.p2.artifact.repository.SignatureVerifier.verify(SignatureVerifier.java:66)
-	at org.eclipse.equinox.internal.p2.artifact.repository.SignatureVerifier.close(SignatureVerifier.java:114)
-	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.reportStatus(SimpleArtifactRepository.java:1248)
-	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:645)
-	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:776)
-	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:319)
-	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:289)
-	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:225)
-	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:155)
-	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:759)
-	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:64)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
-
-!ENTRY org.eclipse.core.jobs 2 2 2019-04-08 21:53:29.376
-!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.equinox.p2.operations.ProfileModificationJob
-
-!ENTRY org.eclipse.core.jobs 2 2 2019-04-08 21:53:29.379
-!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob
-!SESSION 2019-04-08 21:53:29.680 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=11.0.2
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.jee.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
-
-!ENTRY org.eclipse.update.configurator 4 0 2019-04-08 21:53:32.704
-!MESSAGE Unable to access file "plugins/com.genuitec.eclipse.theming.core_1.11.0.201903292252.jar!META-INF/MANIFEST.MF".
-
-!ENTRY org.eclipse.jface.text 2 0 2019-04-08 21:53:42.623
-!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-04-08 21:53:45.285
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\tlp31'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-04-08 21:54:38.865 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=11.0.2
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.jee.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
-
-!ENTRY org.eclipse.jface.text 2 0 2019-04-08 21:54:46.446
-!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-04-08 21:54:48.738
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\tlp31'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.core.resources 4 566 2019-04-09 11:57:03.588
-!MESSAGE Workspace was not properly initialized or has already shutdown.
-!SESSION 2019-04-09 11:57:03.953 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=11.0.2
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product -data file:/E:/Documents/GitHub/TeamGiratina/PushNotifications/ -product org.eclipse.epp.package.jee.product
-
-!ENTRY org.eclipse.jface.text 2 0 2019-04-09 11:57:17.871
-!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-04-09 11:57:21.155
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\tlp31'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.jface.text 2 0 2019-04-09 12:08:49.503
-!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
-!SESSION 2019-04-09 16:36:18.257 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=11.0.2
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.jee.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
-
-!ENTRY org.eclipse.jface.text 2 0 2019-04-09 16:36:50.019
-!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-04-09 16:36:56.334
+!ENTRY org.eclipse.egit.ui 2 0 2019-04-10 14:31:51.090
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\tlp31'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
