@@ -6,7 +6,8 @@ import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
 @Component({ templateUrl: 'home.component.html', 
-            styleUrls: ['home.component.css']
+            styleUrls: ['home.component.css',
+                        './../../../styles.css']
              })
 export class HomeComponent implements OnInit, OnDestroy {
     currentUser: User;

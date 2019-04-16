@@ -1,13 +1,4 @@
-﻿<style>
-.jumbotron{
-    min-height: 100vh;
-    height: 100%;
-    margin-bottom: 0 !important;
-    border-radius: 0 !important;
-}
-</style>
-
-
+﻿
 <!-- nav -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" routerLink="/">Lifestyle Hero</a>
@@ -37,19 +28,7 @@
 <body bg-color= "black">
 <!-- main app container -->
 
-<div style="background:#0B1E37 !important" class="jumbotron" >
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 offset-sm-3">
-        <alert></alert>
-        <br>
-        <br>
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </div>
-</div>
-</body>
+<router-outlet></router-outlet>
 
 <!-- credits
 <div class="text-center">
@@ -59,4 +38,10 @@
     <p>
         <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
     </p>
+</div> -->
+
+<!-- <div style="background:#0B1E37 !important" class="jumbotron" >
+  <div class="container">
+    
+  </div>
 </div> -->
