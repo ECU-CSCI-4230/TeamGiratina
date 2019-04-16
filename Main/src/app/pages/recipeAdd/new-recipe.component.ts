@@ -23,13 +23,14 @@ export class NewRecipeComponent implements OnInit {
 
     ngOnInit() {
         this.recipeForm = this.formBuilder.group({
-            // username: ['', Validators.required],
+            username: ['', Validators.required],
             title: ['', Validators.required],
             description: ['', [Validators.required]],
             serves: ['', Validators.required],
-            // imageUrl: [''],
-            // ingredients: ['', [Validators.required]],
-            // instructions: ['', [Validators.required]]
+            imageUrl: ['',Validators.required],
+            ingredients: ['', [Validators.required]],
+            instructions: ['', [Validators.required]],
+            createdDate: ['']
         });
     }
 

@@ -1,0 +1,63 @@
+import java.util.List;
+import java.util.Scanner;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoException;
+
+public class DocMaker {
+
+	private static final String ipAddr = "127.0.0.1";
+	private static final int Port = 27017;
+	private static final String databaseName = "mycustomers";
+
+	public static void main(String[] args) {
+		MongoClient mongoClient = connectToServer();
+		listDatabases(mongoClient);
+	}
+
+	private static MongoClient connectToServer() {
+		Scanner kbd = new Scanner(System.in);
+		int realPort;
+		String realIpAddr;
+		String response;
+
+		System.out.println("Would you like to connect to " + ipAddr + " on port " + Port + "? y/n");
+		response = kbd.next();
+		if (response.startsWith("y")) {
+			realPort = Port;
+			realIpAddr = ipAddr;
+		} else {
+			response = "n";
+			while (response.startsWith("n")) {
+				System.out.println("What is the IP address of the server you want to connect to? ");
+				realIpAddr = kbd.next();
+				System.out.println("Port number: ");
+				realPort = kbd.nextInt();
+				System.out.println("Connect to " + realIpAddr + " on port "+ realPort + "? y/n");
+				response = kbd.next().toLowerCase();
+			}
+		}
+		try {
+			MongoClient mongoClient = new MongoClient(ipAddr, Port);
+
+		} catch (MongoException e) {
+			e.printStackTrace();
+		} finally {
+			if (mongoClient != null);
+			connectionDetails();
+		}
+
+	}
+
+	private static void listDatabases(MongoClient mongoClient) {
+		List<String> dbs = mongoClient.getDatabaseNames();
+		System.out.println("The databases that exist on this server are:\n");
+		for (int i = 0; i < dbs.size(); i++) {
+			System.out.println(dbs.get(i));
+		}
+	}
+
+	private static void connectionDetails() {
+		System.out.println("Connected to " + ipAddr + " on port " + Port);
+	}
+
+}
