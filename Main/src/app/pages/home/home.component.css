@@ -10,7 +10,12 @@
   border-color: #FF8000;
 }
 
-
+.jumbotron{
+    min-height: 100vh;
+    height: 100%;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+}
 
 .fc-highlight {
   /* when user is selecting cells */
