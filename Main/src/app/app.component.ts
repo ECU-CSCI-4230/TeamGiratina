@@ -1,6 +1,11 @@
 ﻿import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { OptionsInput } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import { FullCalendarComponent } from '@fullcalendar/angular'; 
+
 import { AuthenticationService } from './_services';
 import { User } from './_models';
 
@@ -10,6 +15,8 @@ import { User } from './_models';
 })
 export class AppComponent {
     currentUser: User;
+
+    calendarPlugins = [dayGridPlugin];
 
     constructor(
         private router: Router,
