@@ -54,7 +54,7 @@ public class DocMaker {
 				System.out.println(database + " does not exist on server.");
 			}
 			else {
-				System.out.println("Do you want to grab the db " + database + "? y/n");
+				System.out.println("Do you want grab the db " + database + "? y/n");
 				response = kbd.next().toLowerCase();
 			}
 		}
