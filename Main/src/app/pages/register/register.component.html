@@ -3,7 +3,7 @@
 
     <div class="text">
         <h2 class = "text">Register</h2>
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class='body'>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class='body'>
             <div style="color:#B1B2B2 !important" class="form-group">
                 <label for="firstName">First Name</label>
                 <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"

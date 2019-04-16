@@ -1,13 +1,6 @@
 
-<!--div class = "text">
-    <input type="checkbox" class="chkbox" [(ngModel)]="notify"/> 
-    <label for="notify" class="chkbox">Would you like to recieve Notifications?</label>    
-    
-    <div *ngIf="notify">
-        Hidden
-    </div>
-</div-->
-<form [formGroup]="updateForm" (ngSubmit)="onSubmit()" class='body'>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class='body'>
     
     
     

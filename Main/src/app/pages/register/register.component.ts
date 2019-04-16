@@ -9,7 +9,7 @@ import { AlertService, UserService, AuthenticationService } from '@/_services';
             styleUrls: ['./register.component.css',
              './../../../styles.css']})
 export class RegisterComponent implements OnInit {
-    registerForm: FormGroup;
+    userForm: FormGroup;
     loading = false;
     submitted = false;
     notify: boolean;
@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.registerForm = this.formBuilder.group({
+        this.userForm = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             email: ['', [Validators.required, Validators.email]],
@@ -44,18 +44,18 @@ export class RegisterComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+    get f() { return this.userForm.controls; }
 
     onSubmit() {
         this.submitted = true;
 
         // stop here if form is invalid
-        if (this.registerForm.invalid) {
+        if (this.userForm.invalid) {
             return;
         }
 
         this.loading = true;
-        this.userService.register(this.registerForm.value)
+        this.userService.register(this.userForm.value)
             .pipe(first())
             .subscribe(
                 data => {

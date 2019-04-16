@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,8 +14,7 @@ import { AlertService, UserService, AuthenticationService } from '@/_services';
 export class PreferencesComponent implements OnInit{
     currentUser: User;
     currentUserSubscription: Subscription;
-    users: User[] = [];
-    updateForm: FormGroup;
+    userForm: FormGroup;
     loading = false;
     submitted = false;
     notify: boolean;
@@ -37,7 +36,7 @@ export class PreferencesComponent implements OnInit{
     ngOnInit() {
         
         
-        this.updateForm = this.formBuilder.group({
+        this.userForm = this.formBuilder.group({
             firstName: [this.currentUser.firstName, Validators.required],
             lastName: [this.currentUser.lastName, Validators.required],
             email: [this.currentUser.email, [Validators.required, Validators.email]],
@@ -54,18 +53,20 @@ export class PreferencesComponent implements OnInit{
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.updateForm.controls; }
+    get f() { return this.userForm.controls; }
 
     onSubmit() {
         this.submitted = true;
 
         // stop here if form is invalid
-        if (this.updateForm.invalid) {
+        if (this.userForm.invalid) {
             return;
         }
 
         this.loading = true;
-        this.userService.update(this.currentUser)
+
+
+        this.userService.update(this.userForm.value)
             .pipe(first())
             .subscribe(
                 data => {
@@ -76,5 +77,8 @@ export class PreferencesComponent implements OnInit{
                     this.alertService.error(error);
                     this.loading = false;
                 }); 
+
+
     }
+
 }
