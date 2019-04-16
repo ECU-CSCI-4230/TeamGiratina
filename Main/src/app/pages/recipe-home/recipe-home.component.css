@@ -2,6 +2,7 @@
     background: url('https://www.rainbowvalley.com.au/wp-content/uploads/2017/02/food-background.jpg');
     background-size: cover;
     border-radius: 0;
+    margin: 0;
   }
   
   .jumbotron-heading, p.lead {
@@ -11,5 +12,5 @@
   
   .card {
     margin-bottom: 2em;
-    width: 18em;
+    width: 24em;
   }

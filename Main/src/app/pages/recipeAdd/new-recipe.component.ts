@@ -71,7 +71,7 @@ export class NewRecipeComponent implements OnInit, OnDestroy {
             .subscribe(
                 data => {
                     this.alertService.success('Recipe added successfully', true);
-                    this.router.navigate(['/recipe-show']);
+                    this.router.navigate(['/recipe-home']);
                 },
                 error => {
                     this.alertService.error(error);

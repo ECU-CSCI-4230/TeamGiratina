@@ -2,20 +2,23 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 
-import { User } from '@/_models';
-import { UserService, AuthenticationService } from '@/_services';
+import { User, Recipe } from '@/_models';
+import { UserService, AuthenticationService, RecipeService } from '@/_services';
 
 @Component({ templateUrl: 'recipe-home.component.html', 
-            styleUrls: ['recipe-home.component.css']
+            styleUrls: ['recipe-home.component.css',
+                        "./../../../styles.css"]
          })
 export class RecipeHomeComponent implements OnInit, OnDestroy {
     currentUser: User;
     currentUserSubscription: Subscription;
     users: User[] = [];
+    recipes: Recipe[] = [];
 
     constructor(
         private authenticationService: AuthenticationService,
-        private userService: UserService
+        private userService: UserService,
+        private recipeService: RecipeService
     ) {
         this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
             this.currentUser = user;
@@ -28,10 +31,7 @@ export class RecipeHomeComponent implements OnInit, OnDestroy {
             // show all users
             this.loadAllUsers();
         } else {
-            // show current user
-            this.userService.getAll().pipe(first()).subscribe(users => {
-                this.users[0] = this.currentUser;
-            });
+            this.loadAllRecipes();
         }
         
     }
@@ -50,6 +50,18 @@ export class RecipeHomeComponent implements OnInit, OnDestroy {
     private loadAllUsers() {
         this.userService.getAll().pipe(first()).subscribe(users => {
             this.users = users;
+        });
+    }
+
+    showRecipes(id: number){
+        this.recipeService.delete(id).pipe(first()).subscribe(() => {
+            this.loadAllRecipes()
+        });
+    }
+
+    private loadAllRecipes() {
+        this.recipeService.getAll().pipe(first()).subscribe(recipes => {
+            this.recipes = recipes;
         });
     }
 }
