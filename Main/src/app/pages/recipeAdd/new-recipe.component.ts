@@ -1,36 +1,52 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { User } from '@/_models';
+import { UserService, AuthenticationService } from '@/_services';
 
 import {  RecipeService, AlertService } from '@/_services';
 
 @Component({
     templateUrl: 'new-recipe.component.html',
-    styleUrls: ['new-recipe.component.css']
+    styleUrls: ['new-recipe.component.css',
+                './../../../styles.css']
 })
-export class NewRecipeComponent implements OnInit {
+export class NewRecipeComponent implements OnInit, OnDestroy {
     recipeForm: FormGroup;
     loading = false;
     submitted = false;
+    currentUser: User;
+    currentUserSubscription: Subscription;
+    users: User[] = [];
 
     constructor(
         private formBuilder: FormBuilder,
         private router: Router,
         private recipeService: RecipeService,
-        private alertService: AlertService
-    ) {}
+        private alertService: AlertService,
+        private authenticationService: AuthenticationService,
+        private userService: UserService
+    ) { 
+        this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+        this.currentUser = user;
+        });
+    }
 
     ngOnInit() {
+        this.userService.getAll().pipe(first()).subscribe(users => {
+            this.users[0] = this.currentUser;
+        });
         this.recipeForm = this.formBuilder.group({
-            username: ['', Validators.required],
+            username: [String(this.currentUser.username), Validators.required],
             title: ['', Validators.required],
             description: ['', [Validators.required]],
             serves: ['', Validators.required],
             imageUrl: ['',Validators.required],
             ingredients: ['', [Validators.required]],
-            instructions: ['', [Validators.required]],
-            createdDate: ['']
+            instructions: ['', [Validators.required]]
         });
     }
 
@@ -57,6 +73,23 @@ export class NewRecipeComponent implements OnInit {
                     this.alertService.error(error);
                     this.loading = false;
                 });
+    }
+
+    ngOnDestroy() {
+        // unsubscribe to ensure no memory leaks
+        this.currentUserSubscription.unsubscribe();
+    }
+
+    private loadAllUsers() {
+        this.userService.getAll().pipe(first()).subscribe(users => {
+            this.users = users;
+        });
+    }
+
+    deleteUser(id: number) {
+        this.userService.delete(id).pipe(first()).subscribe(() => {
+            this.loadAllUsers()
+        });
     }
 
 }

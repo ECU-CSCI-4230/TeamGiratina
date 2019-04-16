@@ -1,3 +1,9 @@
+.section, .jumbotron {
+    margin:0;
+    padding:0;
+}
+    
+
 .header-image {
     width: 100%;
     height: 300px;
@@ -26,26 +32,13 @@
 }
 
 .jumbotron-head {
-    background: url('https://www.rainbowvalley.com.au/wp-content/uploads/2017/02/food-background.jpg');
+    background: url('https://foodrevolution.org/wp-content/uploads/2018/04/blog-featured-diabetes-20180406-1330.jpg');
     background-size: cover;
     border-radius: 0;
     background-color: black;
-    height: 200px;
+    height: 300px;
   }
 
 .jumbotron {
     background-color:black; 
-}
-
-.jumbotron-main {
-    background-color:black;
-    min-height: 100vh;
-    height: 100%;
-    margin-bottom: 0 !important;
-    border-radius: 0 !important;
-}
-
-.section {
-    padding: 0px;
-    margin: 0px;
 }
