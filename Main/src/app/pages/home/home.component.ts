@@ -52,7 +52,8 @@ export class HomeComponent implements OnInit{
 
         // calendar bs ========================================================
         this.options = {
-            editable: true,
+            editable: false,
+            allDaySlot: false,
             events: [{
               title: 'Long Event',
               start: this.yearMonth + '-07',
@@ -64,6 +65,16 @@ export class HomeComponent implements OnInit{
                 click: function() {
                   alert('yeet!');
                 }
+                dayClick: function(date) {
+                calGoTo(date);
+                          },
+                select: function(start, end) {
+                newEvent(start);
+                        },
+                eventClick: function(calEvent, jsEvent, view) {
+                editEvent(calEvent);
+                            },
+
               }
             },
             header: {
@@ -89,6 +100,7 @@ export class HomeComponent implements OnInit{
         }**/
         
     }
+
 
     eventClick(model: any) {
         console.log(model);
