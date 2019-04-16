@@ -1,27 +1,14 @@
-<style>
-body {
-  font-family: "Lato", sans-serif;
-}
+<div style="background:#0B1E37 !important" class="jumbotron jumbotron-custom" >
+  <div class="container">
+    <h1 style="color:#B1B2B2 !important">Account</h1>
+    <p style="color:#B1B2B2 !important">Current User: {{currentUser.firstName}}</p>
 
-.main {
-  margin-left: 140px; /* Same width as the sidebar + left position in px */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-
-</style>
-
-  
-
-
-<h1 style="color:#B1B2B2 !important">Account</h1>
-<p style="color:#B1B2B2 !important">Current User: {{currentUser.firstName}}</p>
-
-<h3 style="color:#B1B2B2 !important">Your Account</h3>
-<ul>
-    <li style="color:#B1B2B2 !important" *ngFor="let user of users">
-        {{user.username}} ({{user.firstName}} {{user.lastName}})
-        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-    </li>
-</ul>
+    <h3 style="color:#B1B2B2 !important">Your Account</h3>
+    <ul>
+        <li style="color:#B1B2B2 !important" *ngFor="let user of users">
+            {{user.username}} ({{user.firstName}} {{user.lastName}})
+            - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+        </li>
+    </ul>
+  </div>
+</div>
