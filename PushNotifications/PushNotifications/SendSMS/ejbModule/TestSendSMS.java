@@ -26,7 +26,7 @@ public class TestSendSMS {
 				validated = true;
 			}
 		}
-		System.out.println("Please enter a messege to send to " + stuff[0] + ":\n");
+		System.out.println("Please enter a messege to send to " + stuff[0] + "\n");
 		stuff[1] = kbd.next();
 		SendSMS.sendTxt(stuff);
 		kbd.close();
