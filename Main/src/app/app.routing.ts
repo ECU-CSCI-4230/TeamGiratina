@@ -6,8 +6,9 @@ import { RegisterComponent } from './pages/register';
 import { AccountComponent } from './pages/account';
 import { AuthGuard } from './_guards';
 import { ContactComponent } from './pages/contact';
-import { RecipeshowComponent } from './pages/recipe-show';
+import { RecipeShowComponent } from './pages/recipe-show';
 import { NewRecipeComponent } from './pages/recipeAdd';
+import { RecipeHomeComponent } from './pages/recipe-home';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -15,8 +16,9 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'account', component: AccountComponent },
     { path: 'contact', component: ContactComponent},
-    { path: 'recipe-show', component: RecipeshowComponent },
+    { path: 'recipe-show/:id', component: RecipeShowComponent },
     { path: 'recipe/new', component: NewRecipeComponent },
+    { path: 'recipe-home', component: RecipeHomeComponent },
 
 
     // otherwise redirect to home

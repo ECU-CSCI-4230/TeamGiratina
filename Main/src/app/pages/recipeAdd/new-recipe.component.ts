@@ -36,18 +36,22 @@ export class NewRecipeComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.userService.getAll().pipe(first()).subscribe(users => {
-            this.users[0] = this.currentUser;
-        });
-        this.recipeForm = this.formBuilder.group({
-            username: [String(this.currentUser.username), Validators.required],
-            title: ['', Validators.required],
-            description: ['', [Validators.required]],
-            serves: ['', Validators.required],
-            imageUrl: ['',Validators.required],
-            ingredients: ['', [Validators.required]],
-            instructions: ['', [Validators.required]]
-        });
+        if(this.currentUser === null){
+            this.router.navigate(['/'])
+        }else {
+            this.userService.getAll().pipe(first()).subscribe(users => {
+                this.users[0] = this.currentUser;
+            });
+            this.recipeForm = this.formBuilder.group({
+                username: [String(this.currentUser.username), Validators.required],
+                title: ['', Validators.required],
+                description: ['', [Validators.required]],
+                serves: ['', Validators.required],
+                imageUrl: ['',Validators.required],
+                ingredients: ['', [Validators.required]],
+                instructions: ['', [Validators.required]]
+            });
+        }
     }
 
     // convenience getter for easy access to form fields

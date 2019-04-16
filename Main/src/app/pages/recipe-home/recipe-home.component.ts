@@ -1,22 +1,19 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { Router } from '@angular/router';
 
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
-@Component({ templateUrl: 'account.component.html', 
-            styleUrls: ['account.component.css', 
-            './../../../styles.css']
-            })
-export class AccountComponent implements OnInit, OnDestroy {
+@Component({ templateUrl: 'recipe-home.component.html', 
+            styleUrls: ['recipe-home.component.css']
+         })
+export class RecipeHomeComponent implements OnInit, OnDestroy {
     currentUser: User;
     currentUserSubscription: Subscription;
     users: User[] = [];
 
     constructor(
-        private router: Router,
         private authenticationService: AuthenticationService,
         private userService: UserService
     ) {
@@ -27,12 +24,9 @@ export class AccountComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         
-        if(this.currentUser === null){
-            this.router.navigate(['/'])
-        }
-        else if (this.currentUser.username === "Giratina") {
+        if(this.currentUser.username === "Giratina"){
             // show all users
-            this.loadAllUsers(); 
+            this.loadAllUsers();
         } else {
             // show current user
             this.userService.getAll().pipe(first()).subscribe(users => {

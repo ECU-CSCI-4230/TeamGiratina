@@ -13,8 +13,10 @@ import { LoginComponent } from './pages/login';
 import { RegisterComponent } from './pages/register';
 import { AccountComponent } from './pages/account';
 import { ContactComponent } from './pages/contact';
-import { RecipeshowComponent } from './pages/recipe-show';
+import { RecipeShowComponent } from './pages/recipe-show';
 import { NewRecipeComponent } from './pages/recipeAdd';
+import { RecipeHomeComponent } from './pages/recipe-home';
+
 
 
 @NgModule({
@@ -32,8 +34,9 @@ import { NewRecipeComponent } from './pages/recipeAdd';
         LoginComponent,
         AccountComponent,
         RegisterComponent,
-        RecipeshowComponent,
+        RecipeShowComponent,
         NewRecipeComponent,
+        RecipeHomeComponent,
         ContactComponent,
         ConfirmEqualValidatorDirective
     ],
