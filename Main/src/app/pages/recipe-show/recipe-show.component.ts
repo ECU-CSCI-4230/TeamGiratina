@@ -1,12 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
 @Component({ templateUrl: 'recipe-show.component.html', 
-            styleUrls: ['recipe-show.component.css']
+            styleUrls: ['recipe-show.component.css',
+                        './../../../styles.css']
          })
 export class RecipeShowComponent implements OnInit, OnDestroy {
     currentUser: User;
@@ -14,6 +16,7 @@ export class RecipeShowComponent implements OnInit, OnDestroy {
     users: User[] = [];
 
     constructor(
+        private router: Router,
         private authenticationService: AuthenticationService,
         private userService: UserService
     ) {
