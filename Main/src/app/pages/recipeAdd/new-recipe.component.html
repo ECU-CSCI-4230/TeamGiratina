@@ -27,14 +27,14 @@
             </div>
             <div style="color:#B1B2B2 !important" class="form-group">
                 <label for="ingredients">Ingredients</label>
-                <input type="text" formControlName="ingredients" class="form-control" [ngClass]="{ 'is-invalid': submitted }" />
+                <textarea  type="text" formControlName="ingredients" rows="10" class="form-control" [ngClass]="{ 'is-invalid': submitted }">Enter the ingredients.</textarea>
                 <div *ngIf="submitted" class="invalid-feedback">
                     <div *ngIf="f.ingredients.errors.required">Ingredients are required</div>
                 </div>
             </div>
             <div style="color:#B1B2B2 !important" class="form-group">
                 <label for="instructions">Instructions</label>
-                <input type="text" formControlName="instructions" class="form-control" [ngClass]="{ 'is-invalid': submitted }" />
+                <textarea  type="text" formControlName="instructions" rows="10" class="form-control" [ngClass]="{ 'is-invalid': submitted }">Enter the instructions.</textarea>
                 <div *ngIf="submitted" class="invalid-feedback">
                     <div *ngIf="f.instructions.errors.required">Instructions are required</div>
                 </div>
