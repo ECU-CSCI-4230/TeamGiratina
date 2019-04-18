@@ -1,3 +1,4 @@
+
 /* 
  * Luke Pearson 3/12/2019
  *  SendSMS will send a text message. The program requires two command line parameters.
@@ -15,26 +16,18 @@ import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 
 public class SendSMS {
-    private static final String ACCOUNT_SID =
-            "ACd18c806ce7b1108b807babab4d6afe19";
-    private static final String AUTH_TOKEN =
-            "eea6fa87b58a7690d7010f176d6187af";
+	private static final String ACCOUNT_SID = "ACd18c806ce7b1108b807babab4d6afe19";
+	private static final String AUTH_TOKEN = "eea6fa87b58a7690d7010f176d6187af";
 
-    public static void main(String[] args) {
-    	sendTxt(args);
-    }
-    
-    public static void sendTxt(String[] args) {
-    	String toNumber = args[0];
-    	String text = args[1];
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+	public static void main(String[] args) {
+		sendTxt(args);
+	}
 
-        Message message = Message
-                .creator(new PhoneNumber(toNumber), // to
-                        new PhoneNumber("+19842058491"), // from
-                        text)
-                .create();
-
-        System.out.println(message.getSid());
-    }
-} 
+	private static void sendTxt(String[] args) {
+		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+		Message message = Message.creator(new PhoneNumber(args[0]), // to
+				new PhoneNumber("+19842058491"), // from
+				args[1]).create();
+		System.out.println(message.getSid());
+	}
+}

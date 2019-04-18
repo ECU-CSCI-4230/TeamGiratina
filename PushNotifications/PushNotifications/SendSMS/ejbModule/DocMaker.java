@@ -7,16 +7,17 @@ import com.mongodb.MongoException;
 public class DocMaker {
 
 	public static DBCursor main(String[] args) {
-		MongoClient mongoClient = connectToServer();
+		int port = 27017;
+		String ipAddr = "127.0.0.1";
+		MongoClient mongoClient = connectToServer(ipAddr, port);
 		DB db = mongoClient.getDB("node-mongo-registration-login-api");
 		BasicDBObject query = new BasicDBObject("notify", true);
 		DBCursor cursor = db.getCollection("users").find(query);
 		return cursor;
 	}
-	
-	private static MongoClient connectToServer() {
-		int port = 27017;
-		String ipAddr = "127.0.0.1";
+
+	private static MongoClient connectToServer(String ipAddr, int port) {
+
 		MongoClient mongoClient = null;
 		try {
 			mongoClient = new MongoClient(ipAddr, port);
