@@ -4,4 +4,9 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="SendSMS"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.mongodb.client.MongoCursor"/>
+    <fullyQualifiedTypeName name="com.mongodb.DBObject"/>
+    <fullyQualifiedTypeName name="com.mongodb.DBCollection"/>
+    <fullyQualifiedTypeName name="com.mongodb.DBCursor"/>
+    <fullyQualifiedTypeName name="com.mongodb.BasicDBObject"/>
 </qualifiedTypeNameHistroy>
