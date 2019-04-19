@@ -1,91 +1,24 @@
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
+import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 
 public class DocMaker {
 
-	public static void main(String[] args) {
-		MongoClient mongoClient = connectToServer();
-		DB db = selectDB(mongoClient);
-		db = selectCollection(mongoClient, db);	
+	public static DBCursor main(String[] args) {
+		int port = 27017;
+		String ipAddr = "127.0.0.1";
+		MongoClient mongoClient = connectToServer(ipAddr, port);
+		DB db = mongoClient.getDB("node-mongo-registration-login-api");
+		BasicDBObject query = new BasicDBObject("notify", true);
+		DBCursor cursor = db.getCollection("users").find(query);
+		return cursor;
 	}
 
-	private static DB selectCollection(MongoClient mongoClient, DB db) {
-		Scanner kbd = new Scanner(System.in);
-		String response = "c";
-		String collection = null;
-		while (!response.startsWith("y")) {
-			System.out.println("Which collection would you like to use?");
-			listCollections(db);
-			collection = kbd.next(); 
-			if (!db.getCollectionNames().contains(collection)) {
-				System.out.println(collection + " does not exist in database.");
-			}
-			else {
-				System.out.println("Do you want to use the collection " + collection + "? y/n");
-				response = kbd.next().toLowerCase();
-			}
-		}
-		kbd.close();
-		return db;
-	}
+	private static MongoClient connectToServer(String ipAddr, int port) {
 
-	private static void listCollections(DB db) {
-		Set<String> collections = db.getCollectionNames();
-		System.out.println("The collections that exist in " + db.getName() + " are:");
-		for(int i = collections.size(); i > 0; i--) {
-			System.out.println(collections.iterator().next());
-		}
-	}
-
-	private static DB selectDB(MongoClient mongoClient) {
-		Scanner kbd = new Scanner(System.in);
-		String response = "c";
-		String database = null;
-		while (!response.startsWith("y")) {
-			listDatabases(mongoClient);
-			System.out.println("Which db do you want to grab?");
-			database = kbd.next(); 
-			List<String> dbs = mongoClient.getDatabaseNames();
-			if (!dbs.contains(database)) {
-				System.out.println(database + " does not exist on server.");
-			}
-			else {
-				System.out.println("Do you want grab the db " + database + "? y/n");
-				response = kbd.next().toLowerCase();
-			}
-		}
-		kbd.close();
-		return mongoClient.getDB(database);
-	}
-
-	private static MongoClient connectToServer() {
-		Scanner kbd = new Scanner(System.in);
-		int port = 0;
-		String ipAddr = null;
-		String response = "k";
 		MongoClient mongoClient = null;
-
-		System.out.println("Would you like to connect to 127.0.0.1 on port 27017? y/n");
-		response = kbd.next();
-		if (response.startsWith("y")) {
-			port = 27017;
-			ipAddr = "127.0.0.1";
-		} else {
-			response = "n";
-			while (!response.startsWith("y")) {
-				System.out.println("What is the IP address of the server you want to connect to? ");
-				ipAddr = kbd.next();
-				System.out.println("Port number: ");
-				port = kbd.nextInt();
-				System.out.println("Connect to " + ipAddr + " on port " + port + "? y/n");
-				response = kbd.next().toLowerCase();
-			}
-			kbd.close();
-		}
 		try {
 			mongoClient = new MongoClient(ipAddr, port);
 		} catch (MongoException e) {
@@ -95,13 +28,5 @@ public class DocMaker {
 				System.out.println("Connected to " + ipAddr + " on port " + port + "! :)");
 		}
 		return mongoClient;
-	}
-
-	private static void listDatabases(MongoClient mongoClient) {
-		List<String> dbs = mongoClient.getDatabaseNames();
-		System.out.println("The databases that exist on this server are:\n");
-		for (int i = 0; i < dbs.size(); i++) {
-			System.out.println(dbs.get(i));
-		}
 	}
 }
