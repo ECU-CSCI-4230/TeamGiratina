@@ -2,9 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
-import { User } from '@/_models';
-import { UserService, AuthenticationService } from '@/_services';
+import { User, Recipe } from '@/_models';
+import { UserService, AuthenticationService, RecipeService } from '@/_services';
 
 @Component({ templateUrl: 'recipe-show.component.html', 
             styleUrls: ['recipe-show.component.css',
@@ -14,9 +15,14 @@ export class RecipeShowComponent implements OnInit, OnDestroy {
     currentUser: User;
     currentUserSubscription: Subscription;
     users: User[] = [];
+    recipes: Recipe[] = [];
+    recipe: Recipe;
+    id: String ;
 
     constructor(
+        private route: ActivatedRoute,
         private router: Router,
+        private recipeService: RecipeService,
         private authenticationService: AuthenticationService,
         private userService: UserService
     ) {
@@ -26,16 +32,13 @@ export class RecipeShowComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.id = this.route.snapshot.paramMap.get('id');
+        //this.recipe = this.recipeService.getById(this.id);
+        // show current user
+        this.userService.getAll().pipe(first()).subscribe(users => {
+            this.users[0] = this.currentUser;
+        });
         
-        if(this.currentUser.username === "Giratina"){
-            // show all users
-            this.loadAllUsers();
-        } else {
-            // show current user
-            this.userService.getAll().pipe(first()).subscribe(users => {
-                this.users[0] = this.currentUser;
-            });
-        }
         
     }
 
@@ -53,6 +56,18 @@ export class RecipeShowComponent implements OnInit, OnDestroy {
     private loadAllUsers() {
         this.userService.getAll().pipe(first()).subscribe(users => {
             this.users = users;
+        });
+    }
+
+    showRecipes(id: number){
+        this.recipeService.delete(id).pipe(first()).subscribe(() => {
+            this.loadAllRecipes()
+        });
+    }
+
+    private loadAllRecipes() {
+        this.recipeService.getAll().pipe(first()).subscribe(recipes => {
+            this.recipes = recipes;
         });
     }
 }

@@ -1,29 +1,3 @@
-<section class="jumbotron text-center">
-  <div class="container">
-    <h1 class="jumbotron-heading">Recipes, Stuff & You</h1>
-    <div class="d-flex justify-content-center">
-      <p class="lead w-50">
-        A collection of our favorite recipes!
-      </p>
-    </div>
-    <p>
-      <a routerLink="/recipe/new" class="btn btn-primary">Add New Recipe</a>
-    </p>
-  </div>
-</section>
-<section class="container">
-  <div class="row">
-    <ng-container *ngFor="let recipe of recipeService.getRecipes()">
-      <div class="col d-flex justify-content-center">
-        <div class="card">
-          <img class="card-img-top" [src]="recipe.imageUrl" alt="{{recipe.title}}">
-          <div class="card-body">
-            <h5 class="card-title">{{recipe.title}}</h5>
-            <p class="card-text">{{recipe.description}}</p>
-            <a routerLink="/recipes/{{recipe.id}}" class="btn btn-primary">View</a>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-  </div>
-</section>
+<div class="jumbotron-custom">
+  <p > {{ id }} </p>
+</div>
