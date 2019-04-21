@@ -1,7 +1,7 @@
 import { Ingredient } from './ingredient';
 
 export class Recipe {
-    id: number;
+    id: string;
     title: string;
     username: string;
     description: string;

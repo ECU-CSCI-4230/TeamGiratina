@@ -11,7 +11,7 @@ export class RecipeService {
         return this.http.get<Recipe[]>(`${config.apiUrl}/recipes`);
     }
 
-    getById(id: number) {
+    getById(id: string) {
         return this.http.get(`${config.apiUrl}/recipes/${id}`);
     }
 

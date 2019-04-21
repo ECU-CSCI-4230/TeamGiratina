@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { Subscription, Observable } from 'rxjs';
+import { first, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
@@ -16,8 +16,8 @@ export class RecipeShowComponent implements OnInit, OnDestroy {
     currentUserSubscription: Subscription;
     users: User[] = [];
     recipes: Recipe[] = [];
-    recipe: Recipe;
-    id: String ;
+    recipe: any;
+    id: string;
 
     constructor(
         private route: ActivatedRoute,
@@ -32,8 +32,7 @@ export class RecipeShowComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.id = this.route.snapshot.paramMap.get('id');
-        //this.recipe = this.recipeService.getById(this.id);
+        this.getRecipeById(this.route.snapshot.paramMap.get('id'))
         // show current user
         this.userService.getAll().pipe(first()).subscribe(users => {
             this.users[0] = this.currentUser;
@@ -56,6 +55,12 @@ export class RecipeShowComponent implements OnInit, OnDestroy {
     private loadAllUsers() {
         this.userService.getAll().pipe(first()).subscribe(users => {
             this.users = users;
+        });
+    }
+
+    private getRecipeById(id: string) {
+        this.recipeService.getById(id).pipe(first()).subscribe(recipe => {
+            this.recipe = recipe;
         });
     }
 
