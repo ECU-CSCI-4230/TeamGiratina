@@ -7,7 +7,7 @@ const schema = new Schema({
     email: { type: String, required: true},
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    phoneNumber: { type: String, default: "+10000000000"},
+    phoneNumber: { type: String, default: "9194577950"},
     notify: { type: Boolean, default: false},
     notifyExercise: { type: Boolean, default: false},
     notifyWater: { type: Boolean, default: false},
