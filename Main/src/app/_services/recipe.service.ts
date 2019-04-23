@@ -15,6 +15,10 @@ export class RecipeService {
         return this.http.get(`${config.apiUrl}/recipes/${id}`);
     }
 
+    getByUserId(username: string) {
+        return this.http.get<Recipe[]>(`${config.apiUrl}/recipes/${username}`);
+    }
+
     createNew(recipe: Recipe) {
         return this.http.post(`${config.apiUrl}/recipes/createNew`, recipe);
     }

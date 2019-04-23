@@ -1,0 +1,28 @@
+.jumbotron {
+    background: url('https://www.rainbowvalley.com.au/wp-content/uploads/2017/02/food-background.jpg');
+    background-size: cover;
+    border-radius: 0;
+    align-content: center;
+  }
+  
+  .jumbotron-heading, p.lead {
+    color: white;
+    text-shadow: 2px 2px 5px #000000;
+  }
+  
+  .card {
+    margin-bottom: 2em;
+    width: 18em;
+  }
+
+  .container {
+    align-content: center;
+    text-align: center;
+    color: white;
+    align-content: center;
+  }
+
+  .img {
+    max-height: 700px;
+    max-width: 700px;
+  }

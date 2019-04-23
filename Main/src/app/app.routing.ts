@@ -9,6 +9,7 @@ import { ContactComponent } from './pages/contact';
 import { RecipeShowComponent } from './pages/recipe-show';
 import { NewRecipeComponent } from './pages/recipeAdd';
 import { RecipeHomeComponent } from './pages/recipe-home';
+import { RecipeEditComponent } from './pages/recipe-edit';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
     { path: 'recipe-show/:id', component: RecipeShowComponent },
     { path: 'recipe/new', component: NewRecipeComponent },
     { path: 'recipe-home', component: RecipeHomeComponent },
+    { path: 'recipe-edit/:id', component: RecipeEditComponent },
 
 
     // otherwise redirect to home

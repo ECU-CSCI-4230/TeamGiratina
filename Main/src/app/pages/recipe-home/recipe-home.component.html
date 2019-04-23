@@ -8,6 +8,9 @@
     </div>
     <p>
       <a routerLink="/recipe/new" class="btn btn-primary">Add New Recipe</a>
+      <br><br>
+      <a routerLink="/recipe-edit-home" class="btn btn-primary">Edit a Recipe</a>
+
     </p>
   </div>
 </section>
@@ -22,6 +25,7 @@
               <h5 class="card-title">{{recipe.title}}</h5>
               <p class="card-text">{{recipe.description}}</p>
               <a routerLink="/recipe-show/{{recipe.id}}" class="btn btn-primary">View</a>
+              <a routerLink="/recipe-edit/{{recipe.id}}" class="btn btn-primary">Edit</a>
             </div>
           </div>
         </div>

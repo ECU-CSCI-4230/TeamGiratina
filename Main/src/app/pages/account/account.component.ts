@@ -28,7 +28,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     ngOnInit() {
         
         if(this.currentUser === null){
-            this.router.navigate(['/'])
+            this.router.navigate(['/']);
         }
         else if (this.currentUser.username === "Giratina") {
             // show all users

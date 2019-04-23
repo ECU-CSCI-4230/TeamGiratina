@@ -19,6 +19,8 @@ import { ContactComponent } from './pages/contact';
 import { RecipeShowComponent } from './pages/recipe-show';
 import { NewRecipeComponent } from './pages/recipeAdd';
 import { RecipeHomeComponent } from './pages/recipe-home';
+import { RecipeEditComponent } from './pages/recipe-edit';
+
 
 
 
@@ -41,6 +43,7 @@ import { RecipeHomeComponent } from './pages/recipe-home';
         RecipeShowComponent,
         NewRecipeComponent,
         RecipeHomeComponent,
+        RecipeEditComponent,
         ContactComponent,
         ConfirmEqualValidatorDirective
     ],
