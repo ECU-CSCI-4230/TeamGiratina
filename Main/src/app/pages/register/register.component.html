@@ -64,11 +64,11 @@
             <br>
 
             <div style="color:#B1B2B2 !important" class="form-group">
-                <label for="phoneNumber">Phone Number</label>
-                <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+                <label for="number">Phone Number</label>
+                <input type="text" formControlName="number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.number.errors }"
                 />
                 <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
-                    <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+                    <div *ngIf="f.number.errors.required">Phone Number is required</div>
                 </div>
             </div>
 
