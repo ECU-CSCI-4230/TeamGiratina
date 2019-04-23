@@ -27,14 +27,14 @@
             </div>
             <div style="color:#B1B2B2 !important" class="form-group">
                 <label for="ingredients">Ingredients</label>
-                <input type="text" formControlName="ingredients" class="form-control" [ngClass]="{ 'is-invalid': submitted }" />
+                <textarea  type="text" formControlName="ingredients" rows="10" class="form-control" [ngClass]="{ 'is-invalid': submitted }">Enter the ingredients.</textarea>
                 <div *ngIf="submitted" class="invalid-feedback">
                     <div *ngIf="f.ingredients.errors.required">Ingredients are required</div>
                 </div>
             </div>
             <div style="color:#B1B2B2 !important" class="form-group">
                 <label for="instructions">Instructions</label>
-                <input type="text" formControlName="instructions" class="form-control" [ngClass]="{ 'is-invalid': submitted }" />
+                <textarea  type="text" formControlName="instructions" rows="10" class="form-control" [ngClass]="{ 'is-invalid': submitted }">Enter the instructions.</textarea>
                 <div *ngIf="submitted" class="invalid-feedback">
                     <div *ngIf="f.instructions.errors.required">Instructions are required</div>
                 </div>
@@ -49,7 +49,7 @@
             <div style="color:#B1B2B2 !important" class="form-group">
                 <button style="background-color:rgb(29, 83, 29) !important" [disabled]="loading" class="btn btn-primary">Add</button>
                 <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                <a routerLink="/recipe-show" style="background-color:rgb(126, 0, 0) !important" class="btn btn-link">Cancel</a>
+                <a routerLink="/recipe-home" style="background-color:rgb(126, 0, 0) !important" class="btn btn-link">Cancel</a>
             </div>
         </form>
     </div>
