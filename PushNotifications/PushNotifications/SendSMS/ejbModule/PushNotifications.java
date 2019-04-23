@@ -37,5 +37,4 @@ public class PushNotifications {
 			reminders = 0;
 		}
 	}
-
 }
