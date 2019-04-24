@@ -1,123 +1,86 @@
 
 
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class='body'>
-    
-    
-    
-    
-    
+<form [formGroup]="updateUserForm" (ngSubmit)="onSubmit()" class='body'>
+    <div style="color:#B1B2B2 !important" class="form-group">
+        <label for="newFirstName">First Name</label>
+        <input type="text" formControlName="newFirstName" class="form-control"
+        />
+    </div>
 
+    <div style="color:#B1B2B2 !important" class="form-group">
+        <label for="newLastName">Last Name</label>
+        <input type="text" formControlName="newLastName" class="form-control"
+        />
 
-    <div style="color:#B1B2B2 !important" class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
-        />
-        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-            <div *ngIf="f.firstName.errors.required">First Name is required</div>
-        </div>
     </div>
     <div style="color:#B1B2B2 !important" class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+        <label for="newEmail">Email</label>
+        <input type="text" formControlName="newEmail" class="form-control"
         />
-        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-        </div>
+
     </div>
     <div style="color:#B1B2B2 !important" class="form-group">
-        <label for="email">Email</label>
-        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+        <label for="newUsername">Username</label>
+        <input type="text" formControlName="newUsername" class="form-control"
         />
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.email.errors.required">Email is required</div>
-            <div *ngIf="f.email.errors.email">Please enter a valid email</div>
-        </div>
+
     </div>
     <div style="color:#B1B2B2 !important" class="form-group">
-        <label for="username">Username</label>
-        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+        <label for="newPassword">Password</label>
+        <input type="password" formControlName="newPassword" class="form-control"
         />
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
-        </div>
+
     </div>
     <div style="color:#B1B2B2 !important" class="form-group">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+        <label for="newConfirmPassword">Confirm Password</label>
+        <input type="password" appConfirmEqualValidator="password" formControlName="newConfirmPassword" class="form-control"
         />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-        </div>
-    </div>
-    <div style="color:#B1B2B2 !important" class="form-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" appConfirmEqualValidator="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
-        />
-        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-            <div *ngIf="f.confirmPassword.errors.required">Confirm password is required</div>
-            <div *ngIf="f.confirmPassword.errors.minlength">Password must be at least 6 characters</div>
-            <div *ngIf="f.confirmPassword.errors.notEqual">Passwords must match</div>
-        </div>
+
     </div>
     <br>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="form-group text">
-        <input type="checkbox" [(ngModel)]="notify" formControlName="notify" id="notify" [ngClass]="{ 'is-invalid': submitted && f.notify.errors }"
+
+    <div style="color:#B1B2B2 !important" class="form-group">
+        <input type="checkbox" [(ngModel)]="newNotify" formControlName="newNotify" id="newNotify"
         />
-        <label for="notify" class="chkbox" > Would You Like To Receive Notifications? (Through Text Messages)</label>
+        <label for="newNotify" class="chkbox" > Would You Like To Receive Notifications? (Through Text Messages)</label>
     </div>
     <br>
 
 
-    <div *ngIf="notify">
-        <div class="form-group text">
+    <div *ngIf="newNotify">
+        <div style="color:#B1B2B2 !important" class="form-group">
             <label for="phoneNumber">Phone Number</label>
-            <input type="text" formControlName="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+            <input type="text" formControlName="phoneNumber" class="form-control"
             />
-            <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
-                <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
-            </div>
+
         </div>
 
-        <h4 class="form-group text">Which Notifications would you like to receive?</h4>
+        <h4 style="color:#B1B2B2 !important">Which Notifications would you like to receive?</h4>
         
-        <div class="form-group text">
-            <input type="checkbox" formControlName="notifyExercise" id="notifyExercise" [ngClass]="{ 'is-invalid': submitted && f.notifyExercise.errors }"
+        <div style="color:#B1B2B2 !important" class="form-group">
+            <input type="checkbox" formControlName="newNotifyExercise" id="newNotifyExercise"
             />
-            <label for="notifyExercise" class="chkbox">To Exercise</label>
+            <label for="newNotifyExercise" class="chkbox">To Exercise</label>
         </div>
 
-        <div class="form-group text">
-            <input type="checkbox" formControlName="notifyWater" id="notifyWater" [ngClass]="{ 'is-invalid': submitted && f.notifyWater.errors }"
+        <div style="color:#B1B2B2 !important" class="form-group">
+            <input type="checkbox" formControlName="newNotifyWater" id="newNotifyWater"
             />
-            <label for="notifyWater" class="chkbox">To Drink Water</label>
+            <label for="newNotifyWater" class="chkbox">To Drink Water</label>
         </div>
 
-        <div class="form-group text">
-            <input type="checkbox" formControlName="notifyCook" id="notifyCook" [ngClass]="{ 'is-invalid': submitted && f.notifyCook.errors }"
+        <div style="color:#B1B2B2 !important" class="form-group">
+            <input type="checkbox" formControlName="newNotifyCook" id="newNotifyCook"
             />
-            <label for="notifyCook" class="chkbox">To Cook</label>
+            <label for="newNotifyCook" class="chkbox">To Cook</label>
         </div>
     </div>
+    <br>
 
-    <div class="form-group text">
+    <div style="color:#B1B2B2 !important" class="form-group">
         <button style="background-color:black !important" [disabled]="loading" class="btn btn-primary">Update</button>
         <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
         />
-        <a routerLink="/account" class="btn btn-link">Cancel</a>
+        <a routerLink="/login" class="btn btn-link">Cancel</a>
     </div>
 </form>
-<br>

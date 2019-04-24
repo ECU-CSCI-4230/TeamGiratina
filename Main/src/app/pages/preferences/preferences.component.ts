@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { User } from '@/_models';
@@ -15,9 +15,10 @@ export class PreferencesComponent implements OnInit{
     currentUser: User;
     currentUserSubscription: Subscription;
     userForm: FormGroup;
+    updateUserForm: FormGroup;
     loading = false;
     submitted = false;
-    notify: boolean;
+    newNotify: boolean;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -29,33 +30,36 @@ export class PreferencesComponent implements OnInit{
         this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
             this.currentUser = user;
         });
-        this.notify = this.currentUser.notify;
+        this.newNotify = this.currentUser.notify;
     }
     
 
     ngOnInit() {
-        
-        
-        this.userForm = this.formBuilder.group({
-            firstName: [this.currentUser.firstName, Validators.required],
-            lastName: [this.currentUser.lastName, Validators.required],
-            email: [this.currentUser.email, [Validators.required, Validators.email]],
-            username: [this.currentUser.username, Validators.required],
-            password: [this.currentUser.password, [Validators.required, Validators.minLength(6)]],
-            confirmPassword: [this.currentUser.password, [Validators.required, Validators.minLength(6)]],
-            phoneNumber: [this.currentUser.phoneNumber],
-            notify: [this.currentUser.notify],
-            notifyWater: [this.currentUser.notifyWater],
-            notifyExercise: [this.currentUser.notifyExercise],
-            notifyCook: [this.currentUser.notifyCook]
+
+
+        this.updateUserForm = this.formBuilder.group({
+            newFirstName: [this.currentUser.firstName, Validators.required],
+            newLastName: [this.currentUser.lastName, Validators.required],
+            newEmail: [this.currentUser.email, [Validators.required, Validators.email]],
+            newUsername: [this.currentUser.username, Validators.required],
+            newPassword: [this.currentUser.password, [Validators.required, Validators.minLength(6)]],
+            newConfirmPassword: [this.currentUser.password, [Validators.required, Validators.minLength(6)]],
+            newPhoneNumber: [this.currentUser.phoneNumber],
+            newNotify: [this.currentUser.notify],
+            newNotifyWater: [this.currentUser.notifyWater],
+            newNotifyExercise: [this.currentUser.notifyExercise],
+            newNotifyCook: [this.currentUser.notifyCook]
         });
+
         
     }
 
     // convenience getter for easy access to form fields
     get f() { return this.userForm.controls; }
 
+    
     onSubmit() {
+        /*
         this.submitted = true;
 
         // stop here if form is invalid
@@ -65,11 +69,7 @@ export class PreferencesComponent implements OnInit{
 
         this.loading = true;
 
-        this.userForm.patchValue({
-            firstName: "test",
-        })
-
-        /**
+        
         this.userService.update(this.userForm.value)
             .pipe(first())
             .subscribe(
@@ -81,8 +81,21 @@ export class PreferencesComponent implements OnInit{
                     this.alertService.error(error);
                     this.loading = false;
                 }); 
+
                 */
 
+
+            this.userForm.patchValue({
+                firstName: "test",
+                lastName: "another test"
+            })  
+    }
+    
+
+    updateName(newName: String){
+        this.userForm.setValue({
+            firstName: newName,
+        })
     }
 
 }
