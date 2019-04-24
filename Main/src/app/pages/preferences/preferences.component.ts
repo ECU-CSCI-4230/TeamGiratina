@@ -15,17 +15,17 @@ export class PreferencesComponent implements OnInit{
     currentUser: User;
     currentUserSubscription: Subscription;
     userForm: FormGroup;
-    updateUserForm: FormGroup;
+    preferenceForm: FormGroup;
     loading = false;
     submitted = false;
     newNotify: boolean;
 
     constructor(
-        private formBuilder: FormBuilder,
-        private router: Router,
+        //private formBuilder: FormBuilder,
+        //private router: Router,
         private authenticationService: AuthenticationService,
-        private userService: UserService,
-        private alertService: AlertService
+        //private userService: UserService,
+        //private alertService: AlertService
     ) {
         this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
             this.currentUser = user;
@@ -35,8 +35,18 @@ export class PreferencesComponent implements OnInit{
     
 
     ngOnInit() {
-
-
+        this.preferenceForm = new FormGroup ({
+            firstname: new FormControl(this.currentUser.firstName, {
+              validators: Validators.required,
+              updateOn: 'submit'
+            }),
+            lastname: new FormControl(this.currentUser.lastName, {
+              validators: Validators.required,
+              updateOn: 'submit'
+            }),
+            
+          });
+/*
         this.updateUserForm = this.formBuilder.group({
             newFirstName: [this.currentUser.firstName, Validators.required],
             newLastName: [this.currentUser.lastName, Validators.required],
@@ -51,7 +61,7 @@ export class PreferencesComponent implements OnInit{
             newNotifyCook: [this.currentUser.notifyCook]
         });
 
-        
+    */    
     }
 
     // convenience getter for easy access to form fields
