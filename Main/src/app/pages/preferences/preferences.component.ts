@@ -65,7 +65,11 @@ export class PreferencesComponent implements OnInit{
 
         this.loading = true;
 
+        this.userForm.patchValue({
+            firstName: "test",
+        })
 
+        /**
         this.userService.update(this.userForm.value)
             .pipe(first())
             .subscribe(
@@ -77,7 +81,7 @@ export class PreferencesComponent implements OnInit{
                     this.alertService.error(error);
                     this.loading = false;
                 }); 
-
+                */
 
     }
 

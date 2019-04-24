@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService, UserService, AuthenticationService } from '@/_services';
@@ -8,7 +8,7 @@ import { AlertService, UserService, AuthenticationService } from '@/_services';
 @Component({templateUrl: 'register.component.html', 
             styleUrls: ['./register.component.css',
              './../../../styles.css']})
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit{
     userForm: FormGroup;
     loading = false;
     submitted = false;
@@ -26,6 +26,22 @@ export class RegisterComponent implements OnInit {
             this.router.navigate(['/']);
         }
     }
+
+    /**
+    userFrom = new FormGroup({
+        firstName: new FormControl('', Validators.required),
+        lastName: new FormControl('', Validators.required),
+        email: new FormControl('', [Validators.email, Validators.email]),
+        username: new FormControl('', Validators.required),
+        password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+        confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
+        phoneNumber: new FormControl(''),
+        notify: new FormControl(false),
+        notifyWater: new FormControl(false),
+        notifyExercise: new FormControl(false),
+        notifyCook: new FormControl(false)
+    })
+    */
 
     ngOnInit() {
         this.userForm = this.formBuilder.group({
