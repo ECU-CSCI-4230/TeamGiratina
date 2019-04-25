@@ -1,24 +1,48 @@
 
 
     
-<form [formGroup]="preferenceForm" novalidate>
-    <div class="form-group" style="color:#B1B2B2 !important">
+<form [formGroup]="preferenceForm" (ngSubmit)="onSubmit()" class='body'>
+    <div *ngIf="preferenceForm.value.firstname && preferenceForm.value.lastname">
+        <h3 style="color:#B1B2B2 !important">Hello {{preferenceForm.value.firstname}} {{preferenceForm.value.lastname}}</h3>
+    </div>
+    <!--div class="form-group" style="color:#B1B2B2 !important">
       <label>What's your first name? </label>
       <input class="form-control" formControlName="firstname">
     </div>
     <div class="form-group" style="color:#B1B2B2 !important">
       <label>What's your last name?</label>
       <input class="form-control" formControlName="lastname">
-    </div>
+    </div-->
+
     <div class="form-group" style="color:#B1B2B2 !important">
-        <label>Do you want to recieve notifications?</label>
-        <input class="form-control" formControlName="lastname">
+        <input class="form-control" type="checkbox" [(ngModel)]="notify" formControlName="notify">
+        <label for="notify" class="chkbox" > Would You Like To Receive Notifications? (Through Text Messages)</label>
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
-  <div *ngIf="preferenceForm.value.firstname && preferenceForm.value.lastname">
-    <h3>Hello {{preferenceForm.value.firstname}} {{preferenceForm.value.lastname}}</h3>
-  </div>
+    <div *ngIf="notify">
+        <div class="form-group" style="color:#B1B2B2 !important">
+            <input class="form-control" type="checkbox" formControlName="notifyExercise">
+            <label for="notifyExercise" class="chkbox" > To Exercise </label>
+        </div>
+        <div class="form-group" style="color:#B1B2B2 !important">
+            <input class="form-control" type="checkbox" formControlName="notifyWater">
+            <label for="notifyWater" class="chkbox" > To Drink Water </label>
+        </div>
+        <div class="form-group" style="color:#B1B2B2 !important">
+            <input class="form-control" type="checkbox" formControlName="notifyCook">
+            <label for="notifyCook" class="chkbox" > To Cook </label>
+        </div>
+    </div>
+    <!--button type="submit" class="btn btn-success">Submit</button-->
+    <div style="color:#B1B2B2 !important" class="form-group">
+        <button style="background-color:black !important" [disabled]="loading" class="btn btn-primary">Update</button>
+        <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+        />
+        <a routerLink="/account" class="btn btn-link">Cancel</a>
+    </div>
+
+
+</form>
+
 
 
 
