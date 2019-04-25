@@ -59,7 +59,14 @@ export class HomeComponent implements OnInit{
               title: 'Long Event',
               start: this.yearMonth + '-07',
               end: this.yearMonth + '-10'
-            }],
+            },
+            {
+              title: 'Dunk asteroid into Earth',
+              start: '2019-04-26',
+              eventColor: 'green',
+              end: '2019-04-30'
+            }
+            ],
             customButtons: {
               myCustomButton: {
                 text: 'custom!',
@@ -107,6 +114,17 @@ export class HomeComponent implements OnInit{
 
     toggleVisible() {
         this.calendarVisible = !this.calendarVisible;
+        this.calendarEvents = this.calendarEvents.concat({
+            title: 'Dunk Asteroid into Earth'
+            start: '2019-04-28',
+            allDay:'2019-04-30'
+        },
+        {
+            title: 'Reset'
+            start: '2019-04-30'
+            end: '2019-6-30'
+        }
+        )
     }
 
     toggleWeekends() {
@@ -121,7 +139,7 @@ export class HomeComponent implements OnInit{
     handleDateClick(arg: any) {
         if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
             this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
-                title: 'New Event',
+                title: 'Eat food',
                 start: arg.date,
                 allDay: arg.allDay
             })
