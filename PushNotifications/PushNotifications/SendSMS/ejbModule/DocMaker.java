@@ -1,5 +1,4 @@
 import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
 import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
@@ -10,10 +9,8 @@ public class DocMaker {
 		int port = 27017;
 		String ipAddr = "127.0.0.1";
 		MongoClient mongoClient = connectToServer(ipAddr, port);
-		DB db = mongoClient.getDB("node-mongo-registration-login-api");
-		BasicDBObject query = new BasicDBObject("notify", true);
-		DBCursor cursor = db.getCollection("users").find(query);
-		return cursor;
+		return mongoClient.getDB("node-mongo-registration-login-api").
+				getCollection("users").find(new BasicDBObject("notify", true));
 	}
 
 	private static MongoClient connectToServer(String ipAddr, int port) {
