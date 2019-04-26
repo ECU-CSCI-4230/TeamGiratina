@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
-@Component({ templateUrl: 'contact.component.html', 
+@Component({ templateUrl: 'contact.component.html',
             styleUrls: ['contact.component.css',
             './../../../styles.css']
          })
@@ -24,8 +24,7 @@ export class ContactComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        
-        if(this.currentUser.username === "Giratina"){
+        if (this.currentUser.username === 'Giratina') {
             // show all users
             this.loadAllUsers();
         } else {
@@ -34,7 +33,6 @@ export class ContactComponent implements OnInit, OnDestroy {
                 this.users[0] = this.currentUser;
             });
         }
-        
     }
 
     ngOnDestroy() {
@@ -44,7 +42,7 @@ export class ContactComponent implements OnInit, OnDestroy {
 
     deleteUser(id: number) {
         this.userService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllUsers()
+            this.loadAllUsers();
         });
     }
 

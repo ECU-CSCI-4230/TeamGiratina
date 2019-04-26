@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { User, Recipe } from '@/_models';
 import { UserService, AuthenticationService, RecipeService } from '@/_services';
 
-@Component({ templateUrl: 'recipe-show.component.html', 
+@Component({ templateUrl: 'recipe-show.component.html',
             styleUrls: ['recipe-show.component.css',
                         './../../../styles.css']
          })
@@ -32,13 +32,11 @@ export class RecipeShowComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.getRecipeById(this.route.snapshot.paramMap.get('id'))
+        this.getRecipeById(this.route.snapshot.paramMap.get('id'));
         // show current user
         this.userService.getAll().pipe(first()).subscribe(users => {
             this.users[0] = this.currentUser;
         });
-        
-        
     }
 
     ngOnDestroy() {
@@ -48,7 +46,7 @@ export class RecipeShowComponent implements OnInit, OnDestroy {
 
     deleteUser(id: number) {
         this.userService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllUsers()
+            this.loadAllUsers();
         });
     }
 
@@ -64,9 +62,9 @@ export class RecipeShowComponent implements OnInit, OnDestroy {
         });
     }
 
-    showRecipes(id: number){
+    showRecipes(id: number) {
         this.recipeService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllRecipes()
+            this.loadAllRecipes();
         });
     }
 

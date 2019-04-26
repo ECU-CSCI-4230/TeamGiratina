@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { OptionsInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { FullCalendarComponent } from '@fullcalendar/angular'; 
+import { FullCalendarComponent } from '@fullcalendar/angular';
 
 import { AuthenticationService } from './_services';
 import { User } from './_models';
 
-@Component({ 
-    selector: 'app', 
+@Component({
+    selector: 'app-component',
     templateUrl: 'app.component.html'
 })
 export class AppComponent {
