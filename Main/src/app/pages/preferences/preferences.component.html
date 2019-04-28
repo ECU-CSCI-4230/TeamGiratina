@@ -14,21 +14,23 @@
       <input class="form-control" formControlName="lastname">
     </div-->
 
-    <div class="form-group" style="color:#B1B2B2 !important">
-        <input class="form-control" type="checkbox" [(ngModel)]="notify" formControlName="notify">
+    <div style="color:#B1B2B2 !important" class="form-group" >
+        <input type="checkbox" [(ngModel)]="notify" formControlName="notify" id="notify"
+        />
         <label for="notify" class="chkbox" > Would You Like To Receive Notifications? (Through Text Messages)</label>
     </div>
+
     <div *ngIf="notify">
         <div class="form-group" style="color:#B1B2B2 !important">
-            <input class="form-control" type="checkbox" formControlName="notifyExercise">
+            <input type="checkbox" formControlName="notifyExercise" id="notifyExercise"/>
             <label for="notifyExercise" class="chkbox" > To Exercise </label>
         </div>
         <div class="form-group" style="color:#B1B2B2 !important">
-            <input class="form-control" type="checkbox" formControlName="notifyWater">
+            <input type="checkbox" formControlName="notifyWater" id="notifyWater"/>
             <label for="notifyWater" class="chkbox" > To Drink Water </label>
         </div>
         <div class="form-group" style="color:#B1B2B2 !important">
-            <input class="form-control" type="checkbox" formControlName="notifyCook">
+            <input type="checkbox" formControlName="notifyCook" id="notifyCook"/>
             <label for="notifyCook" class="chkbox" > To Cook </label>
         </div>
     </div>
