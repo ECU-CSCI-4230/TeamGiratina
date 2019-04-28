@@ -10,7 +10,7 @@ import { AuthenticationService } from './_services';
 import { User } from './_models';
 
 @Component({
-    selector: 'app-component',
+    selector: 'app',
     templateUrl: 'app.component.html'
 })
 export class AppComponent {

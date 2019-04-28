@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
         });
     }
 
-// Full Calendar bs ==============================================
+// Full Calendar ==============================================
 
 
     options: OptionsInput;
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
 
-        // calendar bs ========================================================
+        // calendar ========================================================
         this.options = {
             editable: true,
             allDaySlot: true,
