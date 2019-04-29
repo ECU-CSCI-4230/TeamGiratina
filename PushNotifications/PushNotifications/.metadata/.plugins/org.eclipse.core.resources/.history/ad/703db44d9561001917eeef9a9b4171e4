@@ -1,0 +1,21 @@
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
+
+public class PushNotifications {
+
+	public static void main(String[] args) {
+		DBCursor cursor = DocMaker.main(args);
+
+		System.out.println(cursor.next().get("username"));
+		
+		
+		while(cursor.hasNext()) {
+			DBObject a = cursor.next();
+			String name = (String) a.get("firstName");
+			System.out.println(name);
+		}
+		
+		
+	}
+
+}

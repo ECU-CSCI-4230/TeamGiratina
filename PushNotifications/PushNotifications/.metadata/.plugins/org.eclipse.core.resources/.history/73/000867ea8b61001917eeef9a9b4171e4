@@ -1,0 +1,69 @@
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoException;
+import com.mongodb.client.MongoCursor;
+
+public class DocMaker {
+
+	public static void main(String[] args) {
+		MongoClient mongoClient = connectToServer();
+		DB db = selectDB(mongoClient);
+		db = selectCollection(db);	
+
+		BasicDBObject query = new BasicDBObject("username", "nada");
+		DBCursor cursor = db.getCollection("user").find(query);
+		System.out.println("hello");
+	}
+
+	private static DB selectCollection(DB db) {
+		String collection = "users";
+		System.out.println("Selectint collection \"" + collection + "\".");
+		db.getCollection(collection);
+		return db;
+	}
+
+	private static DB selectDB(MongoClient mongoClient) {
+		String database = "node-mongo-registration-login-api";
+		return mongoClient.getDB(database);
+	}
+
+	private static MongoClient connectToServer() {
+		int port = 27017;
+		String ipAddr = "127.0.0.1";
+		MongoClient mongoClient = null;
+		try {
+			mongoClient = new MongoClient(ipAddr, port);
+		} catch (MongoException e) {
+			e.printStackTrace();
+		} finally {
+			if (mongoClient != null)
+				System.out.println("Connected to " + ipAddr + " on port " + port + "! :)");
+		}
+		return mongoClient;
+	}
+
+	private static void listDatabases(MongoClient mongoClient) {
+		List<String> dbs = mongoClient.getDatabaseNames();
+		System.out.println("The databases that exist on this server are:\n");
+		for (int i = 0; i < dbs.size(); i++) {
+			System.out.println(dbs.get(i));
+		}
+	}
+	
+	private static void listCollections(DB db) {
+		Set<String> collections = db.getCollectionNames();
+		System.out.println("The collections that exist in " + db.getName() + " are:");
+		for(int i = collections.size(); i > 0; i--) {
+			System.out.println(collections.iterator().next());
+		}
+		System.out.print("\n");
+	}
+}

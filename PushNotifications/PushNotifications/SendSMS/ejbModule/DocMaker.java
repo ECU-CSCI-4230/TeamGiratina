@@ -1,3 +1,9 @@
+/*
+ * DocMaker.java will query the database, and return a document (BSON) object that contains
+ * all of the SMS subscribers, and to which notification(s) they want to get.
+ */
+
+
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
@@ -22,7 +28,7 @@ public class DocMaker {
 			e.printStackTrace();
 		} finally {
 			if (mongoClient != null)
-				System.out.println("Connected to " + ipAddr + " on port " + port + "! :)");
+				System.out.println( "Connected to " + ipAddr + " on port " + port + "! :)");
 		}
 		return mongoClient;
 	}

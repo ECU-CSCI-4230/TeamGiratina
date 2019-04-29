@@ -1,8 +1,8 @@
 
-/* 
+/* THIS PROGRAM IS FOR TESTING PURPOSES ONLY
  * THIS PROGRAM ONLY WORKS FOR PHONES INSIDE THE US.
  * Please excuse my half-hearted attempt at phone number validation.
- * It catches the mistakes I expect people to make. But not all 
+ * It catches the mistakes I expect people to make. But not all edge
  * cases are accounted for.
  */
 

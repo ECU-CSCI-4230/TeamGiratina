@@ -1,4 +1,5 @@
-﻿const config = require('config.json');
+@@ -1,75 +0,0 @@
+const config = require('config.json');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('_helpers/db');

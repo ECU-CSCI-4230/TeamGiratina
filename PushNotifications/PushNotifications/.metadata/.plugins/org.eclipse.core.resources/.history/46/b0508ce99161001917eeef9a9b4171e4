@@ -1,0 +1,13 @@
+import com.mongodb.DBCursor;
+
+public class PushNotifications {
+
+	public static void main(String[] args) {
+		DBCursor cursor = DocMaker.main(args);
+		while(cursor.hasNext()) {
+			System.out.println(cursor.next());
+		}
+
+	}
+
+}

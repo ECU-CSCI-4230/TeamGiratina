@@ -1,3 +1,9 @@
+/* Author: Luke Pearson
+ * 
+ * PushNotifications.java will construct a personalized message to the SMS subscribers in our database once every 24 hours.
+ * This program does not require any input.
+ */
+
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
@@ -36,9 +42,9 @@ public class PushNotifications {
 				System.out.println(pipeAway[0] + " : " + pipeAway[1]);
 			}
 			try {
-				int snooz = 1000 * 60;
-				System.out.println("Sleeping for about " + snooz / 1000 + " seconds.");
-				Thread.sleep(snooz);
+				int snooze = 1000 * ((60 * 60) * 24);
+				System.out.println("Sleeping for about " + snooze / 1000 + " seconds.");
+				Thread.sleep(snooze);
 			} catch (InterruptedException ex) {
 			} finally {
 				System.out.println("Finished waiting.");

@@ -1,11 +1,11 @@
 
 /* 
- * Luke Pearson 3/12/2019
+ *  Author: Luke Pearson 3/12/2019
  *  SendSMS will send a text message. The program requires two command line parameters.
  *  
  *  SendSMS num "message"
  *  
- *  num is the phone number that you want to send a message to. "message" is the String that
+ *  num (args[0]) is the phone number that you want to send a message to. "message" (args[1]) is the String that
  *  will be the meat and potato of the message.
  *  
  *  Example:
@@ -20,14 +20,10 @@ public class SendSMS {
 	private static final String AUTH_TOKEN = "eea6fa87b58a7690d7010f176d6187af";
 
 	public static void main(String[] args) {
-		sendTxt(args);
-	}
-
-	private static void sendTxt(String[] args) {
 		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 		Message message = Message.creator(new PhoneNumber(args[0]), // to
 				new PhoneNumber("+19842058491"), // from
 				args[1]).create();
-		System.out.println(message.getSid());
+		System.out.println("SID: " + message.getSid() + " Time: " + System.currentTimeMillis());
 	}
 }
