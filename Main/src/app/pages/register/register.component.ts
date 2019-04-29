@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, UserService, AuthenticationService } from '@/_services';
 
-@Component({templateUrl: 'register.component.html', 
+@Component({templateUrl: 'register.component.html',
             styleUrls: ['./register.component.css',
              './../../../styles.css']})
 export class RegisterComponent implements OnInit {
@@ -19,9 +19,9 @@ export class RegisterComponent implements OnInit {
         private authenticationService: AuthenticationService,
         private userService: UserService,
         private alertService: AlertService
-    ) { 
+    ) {
         // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) { 
+        if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
         }
     }

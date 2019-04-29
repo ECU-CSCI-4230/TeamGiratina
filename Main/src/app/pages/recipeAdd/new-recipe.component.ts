@@ -29,16 +29,16 @@ export class NewRecipeComponent implements OnInit, OnDestroy {
         private alertService: AlertService,
         private authenticationService: AuthenticationService,
         private userService: UserService
-    ) { 
+    ) {
         this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
         this.currentUser = user;
         });
     }
 
     ngOnInit() {
-        if(this.currentUser === null){
-            this.router.navigate(['/'])
-        }else {
+        if (this.currentUser === null) {
+            this.router.navigate(['/']);
+        } else {
             this.userService.getAll().pipe(first()).subscribe(users => {
                 this.users[0] = this.currentUser;
             });
@@ -47,7 +47,7 @@ export class NewRecipeComponent implements OnInit, OnDestroy {
                 title: ['', Validators.required],
                 description: ['', [Validators.required]],
                 serves: ['', Validators.required],
-                imageUrl: ['',Validators.required],
+                imageUrl: ['', Validators.required],
                 ingredients: ['', [Validators.required]],
                 instructions: ['', [Validators.required]]
             });
@@ -92,10 +92,10 @@ export class NewRecipeComponent implements OnInit, OnDestroy {
 
     deleteUser(id: number) {
         this.userService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllUsers()
+            this.loadAllUsers();
         });
     }
 
 }
 
-  
+

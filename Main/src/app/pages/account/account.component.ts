@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
-@Component({ templateUrl: 'account.component.html', 
-            styleUrls: ['account.component.css', 
+@Component({ templateUrl: 'account.component.html',
+            styleUrls: ['account.component.css',
             './../../../styles.css']
             })
 export class AccountComponent implements OnInit, OnDestroy {
@@ -26,20 +26,19 @@ export class AccountComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        
-        if(this.currentUser === null){
+
+        if (this.currentUser === null) {
             this.router.navigate(['/']);
-        }
-        else if (this.currentUser.username === "Giratina") {
+        } else if (this.currentUser.username === 'Giratina') {
             // show all users
-            this.loadAllUsers(); 
+            this.loadAllUsers();
         } else {
             // show current user
             this.userService.getAll().pipe(first()).subscribe(users => {
                 this.users[0] = this.currentUser;
             });
         }
-        
+
     }
 
     ngOnDestroy() {
@@ -49,7 +48,7 @@ export class AccountComponent implements OnInit, OnDestroy {
 
     deleteUser(id: number) {
         this.userService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllUsers()
+            this.loadAllUsers();
         });
     }
 

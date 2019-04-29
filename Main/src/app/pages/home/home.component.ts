@@ -7,19 +7,19 @@ import { EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import { FullCalendarComponent } from '@fullcalendar/angular'; 
+import { FullCalendarComponent } from '@fullcalendar/angular';
 
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
 
-@Component({ 
+@Component({
     selector: 'app-root',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css',
                 './../../../styles.css']
  })
 
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
     currentUser: User;
     currentUserSubscription: Subscription;
     users: User[] = [];
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit{
         });
     }
 
-// Full Calendar bs ==============================================
+// Full Calendar ==============================================
 
 
     options: OptionsInput;
@@ -51,10 +51,10 @@ export class HomeComponent implements OnInit{
 
     ngOnInit() {
 
-        // calendar bs ========================================================
+        // calendar ========================================================
         this.options = {
-            editable: false,
-            allDaySlot: false,
+            editable: true,
+            allDaySlot: true,
             events: [{
               title: 'Long Event',
               start: this.yearMonth + '-07',
@@ -75,23 +75,7 @@ export class HomeComponent implements OnInit{
             },
             plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ]
         };
-
-        // =======================================================================
-
-
-        /*
-        if(this.currentUser.username === "Giratina"){
-            // show all users
-            this.loadAllUsers(); 
-        } else {
-            // show current user
-            this.userService.getAll().pipe(first()).subscribe(users => {
-                this.users[0] = this.currentUser;
-            });
-        }**/
-        
     }
-
 
     eventClick(model: any) {
         console.log(model);
@@ -114,7 +98,7 @@ export class HomeComponent implements OnInit{
     }
 
     gotoPast() {
-        let calendarApi = this.calendarComponent.getApi();
+        const calendarApi = this.calendarComponent.getApi();
         calendarApi.gotoDate('1277-01-01'); // call a method on the Calendar object
   }
 
@@ -124,7 +108,7 @@ export class HomeComponent implements OnInit{
                 title: 'New Event',
                 start: arg.date,
                 allDay: arg.allDay
-            })
+            });
         }
     }
 
@@ -150,24 +134,8 @@ export class HomeComponent implements OnInit{
 
     // calendar API stuff
     someMethod() {
-        let calendarApi = this.calendarComponent.getApi();
+        const calendarApi = this.calendarComponent.getApi();
         calendarApi.next();
     }
-
-    ngOnDestroy() {
-        // unsubscribe to ensure no memory leaks
-        this.currentUserSubscription.unsubscribe();
-    }
-
-    deleteUser(id: number) {
-        this.userService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllUsers()
-        });
-    }
-
-    private loadAllUsers() {
-        this.userService.getAll().pipe(first()).subscribe(users => {
-            this.users = users;
-        });
-    }
 }
+

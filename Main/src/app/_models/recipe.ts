@@ -8,6 +8,6 @@ export class Recipe {
     serves: string;
     ingredients: string;
     instructions: string;
-   	imageUrl: string;
-   	createdDate: Date; 
+    imageUrl: string;
+    createdDate: Date;
 }

@@ -5,9 +5,9 @@ import { first } from 'rxjs/operators';
 import { User, Recipe } from '@/_models';
 import { UserService, AuthenticationService, RecipeService } from '@/_services';
 
-@Component({ templateUrl: 'recipe-home.component.html', 
+@Component({ templateUrl: 'recipe-home.component.html',
             styleUrls: ['recipe-home.component.css',
-                        "./../../../styles.css"]
+                        './../../../styles.css']
          })
 export class RecipeHomeComponent implements OnInit, OnDestroy {
     currentUser: User;
@@ -26,14 +26,12 @@ export class RecipeHomeComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        
-        if(this.currentUser.username === "Giratina"){
+        if (this.currentUser.username === 'Giratina') {
             // show all users
             this.loadAllUsers();
         } else {
             this.loadAllRecipes();
         }
-        
     }
 
     ngOnDestroy() {
@@ -43,7 +41,7 @@ export class RecipeHomeComponent implements OnInit, OnDestroy {
 
     deleteUser(id: number) {
         this.userService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllUsers()
+            this.loadAllUsers();
         });
     }
 
@@ -53,9 +51,9 @@ export class RecipeHomeComponent implements OnInit, OnDestroy {
         });
     }
 
-    showRecipes(id: number){
+    showRecipes(id: number) {
         this.recipeService.delete(id).pipe(first()).subscribe(() => {
-            this.loadAllRecipes()
+            this.loadAllRecipes();
         });
     }
 

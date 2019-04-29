@@ -5,8 +5,8 @@ import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '@/_services';
 
-@Component({templateUrl: 'login.component.html', 
-            styleUrls: ['login.component.css', 
+@Component({templateUrl: 'login.component.html',
+            styleUrls: ['login.component.css',
             './../../../styles.css']
         })
 export class LoginComponent implements OnInit {
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService
     ) {
         // redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) { 
+        if (this.authenticationService.currentUserValue) {
             this.router.navigate(['/']);
         }
     }
